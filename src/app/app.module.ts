@@ -15,6 +15,9 @@ import { PhotouploadComponent } from './components/photoupload/photoupload.compo
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { RegisterpageComponent } from './components/registerpage/registerpage.component';
 import { PhotoviewComponent } from './components/photoview/photoview.component';
+import { UserService } from './services/user.service';
+import { TagService } from './services/tag.service';
+import { PhotoService } from './services/photo.service';
 
 
 
@@ -39,7 +42,7 @@ import { PhotoviewComponent } from './components/photoview/photoview.component';
     MatInputModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [UserService,TagService,PhotoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
