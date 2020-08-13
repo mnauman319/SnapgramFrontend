@@ -1,16 +1,19 @@
-<h1>Login Page</h1>
-<div>
+<div id="login_content">
+  <h1>Login</h1>
   <p>
     <mat-form-field appearance="fill">
-      <mat-label>Enter username</mat-label>
-      <input matInput placeholder="matt1992">
+      <mat-label id="username_input" >Enter username</mat-label>
+      <input matInput placeholder="matt1992" [(ngModel)]="username">
     </mat-form-field>
   </p>
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Enter password</mat-label>
-        <input matInput placeholder="bestpasseva">
-      </mat-form-field>
-    </p>
-    
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label id="password_input">Enter password</mat-label>
+      <input matInput placeholder="bestpasseva" [(ngModel)]="password">
+    </mat-form-field>
+  </p>
+  <button mat-raised-button id="login_btn" (click)="validateUser()">Login</button>
+  <br>
+  <button mat-raised-button id="register_user_btn" (click)="openRegistrationView()">Register New Account</button>
+
 </div>

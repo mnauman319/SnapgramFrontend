@@ -2,3 +2,25 @@
     margin-left: 8px;
     margin-top: 5px;
   }
+
+  #login_content{
+    margin: auto;
+    width: 50%;
+    padding-top: 50%;
+    border: 3px solid purple;
+    padding: 10px;
+    text-align: center;
+  }
+
+  #login_btn{
+    color: whitesmoke;
+    background-color: navy;
+    width: 200px;
+  }
+
+  #register_user_btn{
+    margin-top: 15px;
+    color: whitesmoke;
+    background-color: green;
+    width: 200px;
+  }
