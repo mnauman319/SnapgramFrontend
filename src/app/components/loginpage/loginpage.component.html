@@ -8,7 +8,6 @@
     <mat-grid-tile [colspan]="8" [rowspan]="25"> </mat-grid-tile>
     <mat-grid-tile [colspan]="2" [rowspan]="75" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
     <mat-grid-tile [colspan]="8" [rowspan]="15"> 
-      <div id="login_content">
         <h1>Login</h1>
         <p>
           <mat-form-field appearance="fill">
@@ -25,17 +24,15 @@
             </button>
           </mat-form-field>
         </p>
-        <button mat-raised-button id="login_btn" (click)="loginUser()">Login</button>
-        <br>
-        <button mat-raised-button id="register_user_btn" (click)="openRegistrationView()">Register New Account</button>
-      </div>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="8" [rowspan]="8" > 
-      <button mat-raised-button id="login_btn">Login</button>
+      <button mat-raised-button id="login_btn" (click)="loginUser()">Login</button>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="8" [rowspan]="8"> 
-      <button mat-raised-button id="register_user_btn">Register New Account</button> 
+      <button mat-raised-button id="register_user_btn" (click)="openRegistrationView()">Register New Account</button> 
     </mat-grid-tile>
     <mat-grid-tile [colspan]="8" [rowspan]="4"> </mat-grid-tile>
     <mat-grid-tile [colspan]="12" [rowspan]="5" style="background-color:rgb(228, 122, 255)"> Footer</mat-grid-tile>
   </mat-grid-list>
+
+  
