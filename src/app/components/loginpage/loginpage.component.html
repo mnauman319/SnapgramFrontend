@@ -2,18 +2,20 @@
   <h1>Login</h1>
   <p>
     <mat-form-field appearance="fill">
-      <mat-label id="username_input" >Enter username</mat-label>
+      <mat-label id="username_input">Enter username</mat-label>
       <input matInput placeholder="matt1992" [(ngModel)]="username">
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="fill">
       <mat-label id="password_input">Enter password</mat-label>
-      <input matInput placeholder="bestpasseva" [(ngModel)]="password">
+      <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="bestPassEva" [(ngModel)]="password">
+      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
     </mat-form-field>
   </p>
-  <button mat-raised-button id="login_btn" (click)="validateUser()">Login</button>
+  <button mat-raised-button id="login_btn" (click)="loginUser()">Login</button>
   <br>
   <button mat-raised-button id="register_user_btn" (click)="openRegistrationView()">Register New Account</button>
-
 </div>

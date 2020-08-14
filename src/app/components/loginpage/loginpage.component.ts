@@ -11,6 +11,8 @@ export class LoginpageComponent implements OnInit {
 
   username:string;
   password:string;
+  search_input:string;
+  hidePassword:boolean = true;
 
   constructor(private router:Router, private userService:UserService) { }
 
