@@ -21,7 +21,6 @@ export class LoginpageComponent implements OnInit {
 
   username:string;
   password:string;
-  search_input:string;
   hidePassword:boolean = true;
 
   constructor(private router:Router, private userService:UserService) { }
@@ -34,8 +33,6 @@ export class LoginpageComponent implements OnInit {
   }
 
   async loginUser(){
-    //call login service
-    //in login service decide whether or not to redirect or to send error to user
     let user:User = await this.userService.attemptLogin(this.username,this.password);
     if(user !== null){
       this.userService.loggedInUser = user;
@@ -43,6 +40,5 @@ export class LoginpageComponent implements OnInit {
     }else{
       alert("Incorrect Username or Password try again!");
     }
-    
   }
 }
