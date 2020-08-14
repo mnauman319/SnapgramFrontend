@@ -1,19 +1,33 @@
-<div id="login_content">
-  <h1>Login</h1>
-  <p>
-    <mat-form-field appearance="fill">
-      <mat-label id="username_input" >Enter username</mat-label>
-      <input matInput placeholder="matt1992" [(ngModel)]="username">
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="fill">
-      <mat-label id="password_input">Enter password</mat-label>
-      <input matInput placeholder="bestpasseva" [(ngModel)]="password">
-    </mat-form-field>
-  </p>
-  <button mat-raised-button id="login_btn" (click)="validateUser()">Login</button>
-  <br>
-  <button mat-raised-button id="register_user_btn" (click)="openRegistrationView()">Register New Account</button>
+<!-- <div id="login_content"> -->
+  <!-- <h1>Login</h1> -->
 
-</div>
+  <mat-grid-list cols="12" rowHeight="1%">
+    <mat-grid-tile [colspan]="12" [rowspan]="20" style="background-color:rgb(137, 255, 122)"> Banner</mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="75" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
+    <mat-grid-tile [colspan]="8" [rowspan]="25"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="75" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
+    <mat-grid-tile [colspan]="8" [rowspan]="15"> 
+      <mat-form-field appearance="fill">
+        <mat-label id="username_input" >Enter username</mat-label>
+        <input matInput placeholder="matt1992" [(ngModel)]="username">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="8" [rowspan]="15"> 
+      <mat-form-field appearance="fill">
+        <mat-label id="password_input">Enter password</mat-label>
+        <input matInput placeholder="bestpasseva" [(ngModel)]="password">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="8" [rowspan]="8" > 
+      <button mat-raised-button id="login_btn">Login</button>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="8" [rowspan]="8"> 
+      <button mat-raised-button id="register_user_btn">Register New Account</button> 
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="8" [rowspan]="4"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="12" [rowspan]="5" style="background-color:rgb(228, 122, 255)"> Footer</mat-grid-tile>
+  </mat-grid-list>
+
+  
+  <!-- <button mat-raised-button id="login_btn" (click)="validateUser()">Login</button>
+  <button mat-raised-button id="register_user_btn" (click)="openRegistrationView()">Register New Account</button>  -->
