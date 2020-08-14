@@ -1,1 +1,30 @@
-<p>homepage works!</p>
+<mat-grid-list cols="12" rowHeight="10:1">
+
+    <mat-grid-tile [colspan]="1" [rowspan]="20" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="20">
+            <div class='internalMatGrid'> 
+                <mat-grid-list cols="2" rowHeight="10:1">
+                    <mat-grid-tile [colspan]="2" [rowspan]="5" style="background-color:rgb(228, 122, 255)"> User123 </mat-grid-tile>
+                    <mat-grid-tile [colspan]="2" [rowspan]="5" style="background-color:rgb(228, 122, 255)"> sign out </mat-grid-tile>
+                    <mat-grid-tile [colspan]="2" [rowspan]="10" style="background-color:rgb(137, 255, 122)"></mat-grid-tile>
+                </mat-grid-list>
+            </div>   
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="8" [rowspan]="20" style="background-color:rgb(137, 255, 122)">header</mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="20" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
+    
+    <mat-grid-tile [colspan]="1" [rowspan]="10" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
+        <mat-grid-tile [colspan]="3" [rowspan]="10" style="background-color:rgb(228, 122, 255)"> search</mat-grid-tile>
+        <mat-grid-tile [colspan]="6" [rowspan]="10" style="background-color:rgb(137, 255, 122)"> </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="10" style="background-color:rgb(228, 122, 255)"> add photo</mat-grid-tile>
+        
+    <mat-grid-tile [colspan]="1" [rowspan]="10" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
+    
+    <mat-grid-tile [colspan]="1" [rowspan]="50" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
+        <mat-grid-tile [colspan]="10" [rowspan]="50" style="background-color:rgb(148, 240, 235)">
+            
+        </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="50" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
+
+    <mat-grid-tile [colspan]="12" [rowspan]="10" style="background-color:rgb(228, 122, 255)"> Footer</mat-grid-tile>
+  </mat-grid-list>
