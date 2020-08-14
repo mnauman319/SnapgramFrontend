@@ -1,3 +1,5 @@
+import {Photo} from './photo';
+
 export class User{
 
     uId:number;
@@ -5,7 +7,7 @@ export class User{
     password:string;
     first_name:string;
     last_name:string;
-    //still need set of photos
+    photos:Photo[]
 
     constructor(uId:number,username:string,password:string,first_name:string,last_name:string) {
         this.uId = uId;
