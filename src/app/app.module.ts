@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -19,6 +20,7 @@ import { PhotoviewComponent } from './components/photoview/photoview.component';
 import { UserService } from './services/user.service';
 import { TagService } from './services/tag.service';
 import { PhotoService } from './services/photo.service';
+
 
 
 
@@ -42,7 +44,8 @@ import { PhotoService } from './services/photo.service';
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatGridListModule
   ],
   providers: [UserService,TagService,PhotoService],
   bootstrap: [AppComponent]
