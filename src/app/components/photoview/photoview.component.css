@@ -1,35 +1,25 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: auto;
-    font-family: Arial;
-    width:80%;
-  }
+.example-card {
+  width: auto;
+  float: left;
+  max-height:480px;
+}
 
-  /* The grid: three cells float next to each other per row */
-  .cell {
-    width: 25vw;
-    height:25vw;
-    padding:1.5vw;
-    float:left;
-    background:gray;
-    
-  }
-  
-  /* Style the images inside the grid */
-  .cell img {
-    width: 100%;
-    height: 100%;
-    opacity: 1.0; 
-    cursor: pointer;
-    object-fit:contain; 
-  }
-  
-  .cell img:hover {
-    opacity: 0.8;
-  }
+.example-header-image {
+  background-size: cover;
+
+}
+
+.card-tile #card{
+  max-height:100%;
+}
+
+
+#card-content .card-image{
+  max-height:300px;
+  width:auto;
+}
+
+
   
   /* The expanding image container */
   /* .container {

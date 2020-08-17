@@ -7,7 +7,11 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
-.internalMatGrid{ min-width:100%; min-height:100%;}
+.photoview-content{ 
+    height:99%;
+    width:99%;
+    overflow:auto;
+}
 
 md-grid-tile{
     height: calc(100vh - 24px);
@@ -45,4 +49,5 @@ md-grid-tile{
     flex: 1 1 auto;
     
 }
+
 
