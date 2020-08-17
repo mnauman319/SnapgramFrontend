@@ -5,24 +5,29 @@
             <mat-label id="new_username_input">Username</mat-label>
             <input matInput placeholder="matt1992" [(ngModel)]="new_username">
         </mat-form-field>
-    <a id="right_field">
-        <mat-form-field appearance="fill">
-            <mat-label id="new_password_input">Password</mat-label>
-            <input matInput placeholder="bestpasseva" [(ngModel)]="new_password">
-        </mat-form-field>
-    </a>
+        <a id="right_field">
+            <mat-form-field appearance="fill">
+                <mat-label id="new_password_input">Password</mat-label>
+                <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="bestpasseva"
+                    [(ngModel)]="new_password">
+                <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                    <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </a>
     </p>
     <p>
         <mat-form-field appearance="fill">
             <mat-label>First name</mat-label>
-            <input matInput placeholder="Matt" [(ngModel)]="new_fname">
+            <input matInput placeholder="Matt" id="new_fname_input" [(ngModel)]="new_fname">
         </mat-form-field>
-    <a id="right_field">
-        <mat-form-field appearance="fill">
-            <mat-label id="new_lname_input">Last name</mat-label>
-            <input matInput placeholder="Richardson" [(ngModel)]="new_lname">
-        </mat-form-field>
-    </a>
+        <a id="right_field">
+            <mat-form-field appearance="fill">
+                <mat-label id="new_lname_input">Last name</mat-label>
+                <input matInput placeholder="Richardson" [(ngModel)]="new_lname">
+            </mat-form-field>
+        </a>
     </p>
     <button mat-raised-button id="submit_new_user" (click)="registerNewUser()">Submit</button>
 

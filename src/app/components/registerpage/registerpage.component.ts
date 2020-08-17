@@ -15,7 +15,7 @@ export class RegisterpageComponent implements OnInit {
   new_password:string;
   new_fname:string;
   new_lname:string;
-
+  hidePassword:boolean = true;
   constructor(private router:Router,private userService:UserService) { }
 
   ngOnInit(): void {
