@@ -14,6 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatCardModule} from '@angular/material/card';
 
 
 import { AppComponent } from './app.component';
@@ -54,6 +55,7 @@ import { PhotoService } from './services/photo.service';
     MatIconModule,
     MatToolbarModule,
     MatBadgeModule,
+    MatCardModule,
     MatExpansionModule
   ],
   providers: [UserService,TagService,PhotoService,Title],

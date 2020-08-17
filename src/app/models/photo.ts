@@ -7,7 +7,6 @@ export class Photo{
     photoUrl:string;
     photoName:string;
     photoDescription:string;
-    user:User;
     tags:Tag[];
     
     constructor(photoId:number, photoUrl:string, photoName:string, photoDescription:string, tags:Tag[]) {

@@ -4,6 +4,7 @@ import { Photo } from '../../models/photo'
 
 import { PhotoService } from 'src/app/services/photo.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-photoview',

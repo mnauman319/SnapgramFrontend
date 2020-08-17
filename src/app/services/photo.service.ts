@@ -40,4 +40,9 @@ export class PhotoService {
     await this.http.delete<void>(`http://localhost:8080/users/0/photos/${pId}`).toPromise();
   }
 
+
+  async uploadPhotoToS3(file: FormData){
+   const s3url = await this.http.post(`http://localhost:8080/s3/upload/`, file).toPromise();
+   return s3url;
+  }
 }
