@@ -18,7 +18,7 @@ export class UserService {
 
   async searchUserByUsername(username:string){
     let user:User;
-    user = await this.http.get<User>(`http://localhost:8080/user?username=${username}`).toPromise();
+    user = await this.http.get<User>(`http://localhost:8080/users?username=${username}`).toPromise();
     return user;
   }
 

@@ -2,15 +2,15 @@ import { Photo } from "./photo";
 
 export class Tag{
 
-    tId:number;
-    tag_name:string;
+    tagId:number;
+    tagName:string;
     photo:Photo;
 
-    constructor(tId:number,
-        tag_name:string,
+    constructor(tagId:number,
+        tagName:string,
         photo:Photo) {
-        this.tId = tId;
-        this.tag_name = tag_name;
+        this.tagId = tagId;
+        this.tagName = tagName;
         this.photo = photo;
     }
 }

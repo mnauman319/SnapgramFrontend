@@ -3,21 +3,18 @@ import {Tag} from './tag';
 
 export class Photo{
 
-    pId:number;
-    photo_url:string;
-    photo_name:string;
-    photo_description:string;
+    photoId:number;
+    photoUrl:string;
+    photoName:string;
+    photoDescription:string;
     user:User;
-    tags:Tag[]
+    tags:Tag[];
     
-    constructor(pId:number,
-        uId:number,
-        photo_url:string,
-        photo_name:string,
-        photo_description:string) {
-        this.pId
-        this.photo_url = photo_url;
-        this.photo_name = photo_name;
-        this.photo_description = photo_description;
+    constructor(photoId:number, photoUrl:string, photoName:string, photoDescription:string, tags:Tag[]) {
+        this.photoId = photoId;
+        this.photoUrl = photoUrl;
+        this.photoName = photoName;
+        this.photoDescription = photoDescription;
+        this.tags = tags;
     }
 }

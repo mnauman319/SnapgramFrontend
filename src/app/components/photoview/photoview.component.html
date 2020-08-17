@@ -1,1 +1,26 @@
-<p>photoview works!</p>
+
+<body>
+
+    <div  *ngFor = "let photo of photos" class="cell">
+        <img src="{{photo.photoUrl}}" alt="{{photo.photoName}}" (click)="selectPhoto(photo);">
+    </div> 
+
+
+    
+    <div *ngIf ="selectedPhoto" class="modal">
+
+        <div class="modal-header">
+            <span (click)="closeModal()" class="close">&times;</span>
+            <h2>{{selectedPhoto.photoName}}</h2>
+        </div>
+        
+        <div class = "modal-content">
+            <img src="{{selectedPhoto.photoUrl}}" alt="{{selectedPhoto.photoName}}">
+            <div>{{selectedPhoto.photoDescription}}</div>
+        </div>
+
+        <div class = "modal-footer"></div>
+        
+    </div>
+
+</body>
