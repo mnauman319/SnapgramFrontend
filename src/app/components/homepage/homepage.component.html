@@ -3,7 +3,7 @@
         <mat-expansion-panel-header>
             <mat-panel-title class="expansion-bar-header">
                 <span>
-                    <button mat-button><mat-icon>account_circle</mat-icon> <mat-label> User123</mat-label></button>
+                    <button mat-button><mat-icon>account_circle</mat-icon> <mat-label> {{currentUser.username}}</mat-label></button>
                 </span>
                 <span class="expansion-bar-spacer"></span>
                 <button mat-button><mat-icon matBadge="11" matBadgeColor="warn">notifications</mat-icon></button>
@@ -17,7 +17,7 @@
             <button mat-button><mat-label>Privacy </mat-label><mat-icon>security</mat-icon></button>
         </p>
         <p>
-            <button mat-button><mat-label>Sign Out </mat-label><mat-icon>keyboard_return</mat-icon></button>
+            <button mat-button (click)="signOut()"><mat-label>Sign Out </mat-label><mat-icon>keyboard_return</mat-icon></button>
         </p>
         
         
@@ -44,13 +44,13 @@
         <mat-grid-tile [colspan]="10" [rowspan]="12"> 
             <mat-form-field class='search-bar'>
                     <mat-label>Search</mat-label>
-                    <input matInput placeholder="Ex. Pizza" value="">
+                    <input matInput placeholder="Ex. Pizza" value="" (keyup)="search()" [(ngModel)]="searchName">
             </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="6" [rowspan]="12"> </mat-grid-tile>
         <mat-grid-tile class="add-photo" [colspan]="4" [rowspan]="12">
             <mat-label>New Photo </mat-label>
-            <button id ="add-photo-button" mat-mini-fab color="accent"><mat-icon>add_a_photo</mat-icon></button>
+            <button id ="add-photo-button" mat-mini-fab color="accent" (click)="openUploadPhoto()"><mat-icon>add_a_photo</mat-icon></button>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="2" [rowspan]="12"> </mat-grid-tile>
     </mat-grid-list>

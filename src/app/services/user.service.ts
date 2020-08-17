@@ -6,6 +6,8 @@ import {HttpClient} from '@angular/common/http'
 })
 export class UserService {
 
+  //if we want to persist the data through refreshes then we need to use local storage or cookie
+  //this userService will get cleared on refresh
   loggedInUser:User;
   
 
@@ -25,5 +27,13 @@ export class UserService {
   async attemptLogin(username:string,password:string):Promise<User>{
     let httpResponse = await this.http.post<User>("http://localhost:8080/login",{username, password}).toPromise();
     return httpResponse;
+  }
+  clearUser(){
+    this.loggedInUser.userId = 0;
+    this.loggedInUser.username ="";
+    this.loggedInUser.password ="";
+    this.loggedInUser.fName ="";
+    this.loggedInUser.lName ="";
+    this.loggedInUser.photos =[];
   }
 }

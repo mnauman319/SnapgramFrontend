@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit, Input } from '@angular/core'
 import { Photo } from '../../models/photo'
 
@@ -38,5 +39,4 @@ export class PhotoviewComponent implements OnInit {
       this.selectedPhoto = null;
     }
   }
-
 }

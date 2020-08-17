@@ -2,7 +2,7 @@ import {Photo} from './photo';
 
 export class User{
 
-    uId:number;
+    userId:number;
     username:string;
     password:string;
     fName:string;
@@ -10,7 +10,7 @@ export class User{
     photos:Photo[]
 
     constructor(uId:number,username:string,password:string,fName:string,lName:string) {
-        this.uId = uId;
+        this.userId = uId;
         this.username = username;
         this.password = password;
         this.fName = fName;
