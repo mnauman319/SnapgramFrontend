@@ -11,4 +11,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 md-grid-tile{
     height: calc(100vh - 24px);
+    border:  1px solid black;
+}
+
+#search-bar{
+    min-width: 100%;
+    min-height: 100%;
+    font-size: x-large;
+    padding-bottom: 0;
+    
 }
