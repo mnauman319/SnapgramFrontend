@@ -10,6 +10,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
+
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -44,8 +47,9 @@ import { PhotoService } from './services/photo.service';
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDividerModule, 
+    MatIconModule
   ],
   providers: [UserService,TagService,PhotoService],
   bootstrap: [AppComponent]
