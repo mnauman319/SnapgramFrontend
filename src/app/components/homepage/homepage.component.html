@@ -1,17 +1,37 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle class="expansion-bar">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="expansion-bar-header">
+                <span>
+                    <button mat-button><mat-icon>account_circle</mat-icon> <mat-label> User123</mat-label></button>
+                </span>
+                <span class="expansion-bar-spacer"></span>
+                <button mat-button><mat-icon matBadge="11" matBadgeColor="warn">notifications</mat-icon></button>
+                <button mat-button><mat-icon matBadge="3" matBadgeColor="warn">mail_outline</mat-icon></button>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+            <button mat-button><mat-label>Account Settings </mat-label><mat-icon>settings</mat-icon></button>
+        </p>
+        <p>
+            <button mat-button><mat-label>Privacy </mat-label><mat-icon>security</mat-icon></button>
+        </p>
+        <p>
+            <button mat-button><mat-label>Sign Out </mat-label><mat-icon>keyboard_return</mat-icon></button>
+        </p>
+        
+        
+    </mat-expansion-panel> 
+</mat-accordion>
+
+  
+
 <section>
     <mat-grid-list cols="12" rowHeight="10:1" [gutterSize]="'10px'">
         <mat-grid-tile [colspan]="12" [rowspan]="5"></mat-grid-tile>
-        
         <mat-grid-tile [colspan]="1" [rowspan]="20"> </mat-grid-tile>
         <mat-grid-tile [colspan]="10" [rowspan]="20">
-            <div class='internalMatGrid'> 
-                <mat-grid-list cols="10" rowHeight="10:1" [gutterSize]="'10px'">
-                        <mat-grid-tile id='user-profile-icon' [colspan]="2" [rowspan]="5"> User123 </mat-grid-tile>
-                        <mat-grid-tile [colspan]="8" [rowspan]="5"> </mat-grid-tile>
-                        <mat-grid-tile [colspan]="2" [rowspan]="5"> sign out </mat-grid-tile>
-                        <mat-grid-tile [colspan]="8" [rowspan]="10" ></mat-grid-tile>
-                </mat-grid-list>
-            </div>   
+            <h1>Welcome to Snapgram!!!</h1>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1" [rowspan]="20"> </mat-grid-tile>
         <mat-grid-tile [colspan]="12" [rowspan]="1"> </mat-grid-tile>
@@ -22,16 +42,15 @@
     <mat-grid-list cols="24" rowHeight="10:1" [gutterSize]="'10px'" >
         <mat-grid-tile [colspan]="2" [rowspan]="12"> </mat-grid-tile>
         <mat-grid-tile [colspan]="10" [rowspan]="12"> 
-        <mat-form-field id='search-bar'>
-                <mat-label>Search</mat-label>
-                <input matInput placeholder="Ex. Pizza" value="">
-        </mat-form-field>
+            <mat-form-field class='search-bar'>
+                    <mat-label>Search</mat-label>
+                    <input matInput placeholder="Ex. Pizza" value="">
+            </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="6" [rowspan]="12"> </mat-grid-tile>
-        <mat-grid-tile [colspan]="4" [rowspan]="12">
-            <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
-                <mat-icon>plus_sign</mat-icon>
-              </button>
+        <mat-grid-tile class="add-photo" [colspan]="4" [rowspan]="12">
+            <mat-label>New Photo </mat-label>
+            <button id ="add-photo-button" mat-mini-fab color="accent"><mat-icon>add_a_photo</mat-icon></button>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="2" [rowspan]="12"> </mat-grid-tile>
     </mat-grid-list>
@@ -39,12 +58,12 @@
 
 <section>
     <mat-grid-list cols="12" rowHeight="10:1" [gutterSize]="'10px'">
-        <mat-grid-tile [colspan]="1" [rowspan]="75" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="75"> </mat-grid-tile>
             <mat-grid-tile [colspan]="10" [rowspan]="75" style="background-color:rgb(148, 240, 235)">
-                
+                <h1>Photo view will go here!!</h1>
             </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="75" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="75"> </mat-grid-tile>
     
-        <mat-grid-tile [colspan]="12" [rowspan]="10" style="background-color:rgb(228, 122, 255)"> Footer</mat-grid-tile>
+        <mat-grid-tile [colspan]="12" [rowspan]="10" ></mat-grid-tile>
     </mat-grid-list>
 </section>

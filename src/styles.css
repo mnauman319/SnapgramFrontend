@@ -14,10 +14,35 @@ md-grid-tile{
     border:  1px solid black;
 }
 
-#search-bar{
+.search-bar{
     min-width: 100%;
     min-height: 100%;
     font-size: x-large;
     padding-bottom: 0;
     
 }
+
+.add-photo{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: x-large;
+}
+
+.add-photo mat-label{
+    padding-right: 15%;
+}
+
+.expansion-bar .expansion-bar-header{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    
+}
+.expansion-bar mat-expansion-panel-header{
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.expansion-bar .expansion-bar-spacer{
+    flex: 1 1 auto;
+    
+}
+

@@ -28,6 +28,7 @@ export class PhotoService {
     return photo;
   }
 
+
   async deletePhoto(pId:number):Promise<void>{
     await this.http.delete<void>(`http://localhost:8080/users/0/photos/${pId}`).toPromise();
   }
