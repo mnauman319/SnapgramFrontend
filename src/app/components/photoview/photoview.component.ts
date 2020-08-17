@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-photoview',
@@ -11,5 +12,4 @@ export class PhotoviewComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
