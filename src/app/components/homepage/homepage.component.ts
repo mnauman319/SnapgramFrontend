@@ -12,7 +12,6 @@ import { User } from 'src/app/models/user';
 export class HomepageComponent implements OnInit {
 
   constructor(private router:Router,private titleService:Title,private userService:UserService) { }
-
   currentUser:User;
   searchName:string;
   user:User;
@@ -42,6 +41,7 @@ export class HomepageComponent implements OnInit {
    this.user = await this.userService.searchUserByUsername(this.searchName);
    if(this.user !== null){
     //redirect to the searched users page.
+    
    }
 
   }
