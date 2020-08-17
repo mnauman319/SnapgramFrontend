@@ -23,10 +23,10 @@ export class PhotoService {
     return photo;
   }
 
-  async editPhoto(photo:Photo):Promise<Photo>{
-    photo = this.http.put<Photo>("http://localhost:8080/users/0/photos", photo).toPromise();
-    return photo;
-  }
+  // async editPhoto(photo:Photo):Promise<Photo>{
+  //   photo = this.http.put<Photo>("http://localhost:8080/users/0/photos", photo).toPromise();
+  //   return photo;
+  // }
 
   async deletePhoto(pId:number):Promise<void>{
     await this.http.delete<void>(`http://localhost:8080/users/0/photos/${pId}`).toPromise();
