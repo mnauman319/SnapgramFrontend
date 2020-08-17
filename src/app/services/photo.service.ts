@@ -24,7 +24,7 @@ export class PhotoService {
   }
 
   async editPhoto(photo:Photo):Promise<Photo>{
-    photo = this.http.put<Photo>("http://localhost:8080/users/0/photos", photo).toPromise();
+    photo = await this.http.put<Photo>("http://localhost:8080/users/0/photos", photo).toPromise();
     return photo;
   }
 

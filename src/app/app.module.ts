@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -50,7 +50,7 @@ import { PhotoService } from './services/photo.service';
     MatDividerModule, 
     MatIconModule
   ],
-  providers: [UserService,TagService,PhotoService],
+  providers: [UserService,TagService,PhotoService,Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

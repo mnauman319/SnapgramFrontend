@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { User } from '../../models/user'
+import { Title } from '@angular/platform-browser';
 
 
 export interface Tile {
@@ -23,9 +24,10 @@ export class LoginpageComponent implements OnInit {
   password:string;
   hidePassword:boolean = true;
 
-  constructor(private router:Router, private userService:UserService) { }
+  constructor(private router:Router, private userService:UserService,private titleService:Title) { }
 
   ngOnInit(): void {
+    this.setTitle();
   }
 
   openRegistrationView(){
@@ -40,5 +42,8 @@ export class LoginpageComponent implements OnInit {
     }else{
       alert("Incorrect Username or Password try again!");
     }
+  }
+  setTitle(){
+    this.titleService.setTitle("SnapGram - Login");
   }
 }
