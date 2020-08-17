@@ -13,11 +13,19 @@ export class HomepageComponent implements OnInit {
 
   constructor(private router:Router,private titleService:Title,private userService:UserService) { }
 
-  currentUser:string = this.userService.loggedInUser.username;
+  currentUser:User;
   searchName:string;
   user:User;
   ngOnInit(): void {
-    this.setTitle();
+    
+    //It will not allow people to go to home page if they are not logged in
+    if(this.userService.loggedInUser === undefined){
+      this.router.navigateByUrl("/login")
+    }
+    else{
+      this.currentUser = this.userService.loggedInUser;
+    }
+      this.setTitle();
   }
   setTitle(){
     this.titleService.setTitle("SnapGram");
@@ -33,10 +41,8 @@ export class HomepageComponent implements OnInit {
   async search(){
    this.user = await this.userService.searchUserByUsername(this.searchName);
    if(this.user !== null){
-    //redirect to that users homepage
-    console.log(`Searched user has ${this.user.userId} as their userId`);
-    
+    //redirect to the searched users page.
    }
-    
+
   }
 }

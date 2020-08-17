@@ -6,6 +6,8 @@ import {HttpClient} from '@angular/common/http'
 })
 export class UserService {
 
+  //if we want to persist the data through refreshes then we need to use local storage or cookie
+  //this userService will get cleared on refresh
   loggedInUser:User;
   
 
@@ -33,6 +35,5 @@ export class UserService {
     this.loggedInUser.fName ="";
     this.loggedInUser.lName ="";
     this.loggedInUser.photos =[];
-    console.log(this.loggedInUser);
   }
 }
