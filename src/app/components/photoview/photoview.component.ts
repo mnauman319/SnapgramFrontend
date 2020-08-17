@@ -27,7 +27,7 @@ export class PhotoviewComponent implements OnInit {
   }
 
   async forTesting(){
-    this.photos = await this.pserv.getPhotos(1,"");
+    this.photos = await this.pserv.getPhotosByUid(1);
   }
 
   selectPhoto(photo:Photo) {
