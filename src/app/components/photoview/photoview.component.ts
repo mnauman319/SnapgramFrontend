@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 })
 export class PhotoviewComponent implements OnInit {
 
-  // @Input() photos:Photo[];
+  // @Input() uId:number;
+
+  
   
   photos:Photo[];
   
@@ -32,7 +34,9 @@ export class PhotoviewComponent implements OnInit {
   }
 
   closeModal(){
-    this.selectedPhoto = null;
+    if(this.selectedPhoto!=null){
+      this.selectedPhoto = null;
+    }
   }
 
 }
