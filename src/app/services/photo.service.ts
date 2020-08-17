@@ -13,8 +13,14 @@ export class PhotoService {
     return photo;
   }
 
-  async getPhotos(uId:number, hashtag:string):Promise<Array<Photo>>{
-    const photos:Array<Photo> = await this.http.get<Array<Photo>>(`http://localhost:8080/users/${uId}/photos?hastag=${hashtag}`).toPromise();
+  async getPhotosByUidAndTag(uId:number, hashtag:string):Promise<Array<Photo>>{
+    const photos:Array<Photo> = await this.http.get<Array<Photo>>(`http://localhost:8080/users/${uId}/photos?hashtag=${hashtag}`).toPromise();
+    photos.sort(function(a,b){return b.photoId-a.photoId});
+    return photos;
+  }
+
+  async getPhotosByUid(uId:number){
+    const photos:Array<Photo> = await this.http.get<Array<Photo>>(`http://localhost:8080/users/${uId}/photos`).toPromise();
     photos.sort(function(a,b){return b.photoId-a.photoId});
     return photos;
   }
