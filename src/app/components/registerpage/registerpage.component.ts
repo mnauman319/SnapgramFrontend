@@ -24,8 +24,12 @@ export class RegisterpageComponent implements OnInit {
   }
   async registerNewUser(){
 
-    let user = new User(0,this.new_username,this.new_password,this.new_fname,this.new_lname);
-    user = await this.userService.createUser(user);
+    let newUser = new User(0,this.new_username,this.new_password,this.new_fname,this.new_lname);
+    let oldUser:User = await this.userService.searchUserByUsername(newUser.username);
+    if(oldUser !== null && oldUser.password === newUser.password){
+      alert("This is already registered. Please enter a new user or attempt to login.");
+    }else{
+      newUser = await this.userService.createUser(newUser);
 
     this.new_username = "";
     this.new_password = "";
@@ -33,6 +37,7 @@ export class RegisterpageComponent implements OnInit {
     this.new_lname = "";
 
     this.router.navigateByUrl("/login")
+    }
   }
   setTitle(){
     this.titleService.setTitle("SnapGram - Register User");

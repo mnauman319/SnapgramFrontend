@@ -2,14 +2,14 @@
     <h1>Register New User</h1>
     <p>
         <mat-form-field appearance="fill">
-            <mat-label id="new_username_input">Username</mat-label>
-            <input matInput placeholder="matt1992" [(ngModel)]="new_username">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="matt1992" [(ngModel)]="new_username" id="new_username_input">
         </mat-form-field>
         <a id="right_field">
             <mat-form-field appearance="fill">
-                <mat-label id="new_password_input">Password</mat-label>
+                <mat-label>Password</mat-label>
                 <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="bestpasseva"
-                    [(ngModel)]="new_password">
+                    [(ngModel)]="new_password" id="new_password_input">
                 <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
                     <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -24,8 +24,8 @@
         </mat-form-field>
         <a id="right_field">
             <mat-form-field appearance="fill">
-                <mat-label id="new_lname_input">Last name</mat-label>
-                <input matInput placeholder="Richardson" [(ngModel)]="new_lname">
+                <mat-label>Last name</mat-label>
+                <input matInput placeholder="Richardson" [(ngModel)]="new_lname" id="new_lname_input">
             </mat-form-field>
         </a>
     </p>

@@ -29,7 +29,6 @@ export class UserService {
     user = await this.http.get<User>(`http://localhost:8080/users?username=${username}`).toPromise();
     return user;
   }
-
   async attemptLogin(username:string,password:string):Promise<User>{
     let httpResponse = await this.http.post<User>("http://localhost:8080/login",{username, password}).toPromise();
     return httpResponse;

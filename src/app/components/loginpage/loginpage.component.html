@@ -11,13 +11,13 @@
         <p>
           <mat-form-field appearance="fill">
             <mat-label id="username_input">Enter username</mat-label>
-            <input matInput placeholder="matt1992" [(ngModel)]="username">
+            <input matInput placeholder="matt1992" [(ngModel)]="username" id="username_input">
           </mat-form-field>
         </p>
         <p>
           <mat-form-field appearance="fill">
             <mat-label id="password_input">Enter password</mat-label>
-            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="bestPassEva" [(ngModel)]="password">
+            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="bestPassEva" [(ngModel)]="password" id="password_input">
             <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
               <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
