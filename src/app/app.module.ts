@@ -11,7 +11,6 @@ import { MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
-import {MatIconModule} from '@angular/material/icon';
 
 
 import { AppComponent } from './app.component';
