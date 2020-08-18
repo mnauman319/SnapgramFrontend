@@ -1,5 +1,9 @@
 <p>photoupload works!</p>
 
 <form>
-    <input id="myForm" type="file" name="file" (change)="uploadPhoto($event.target.files)" >
+    <input id="photoUploadImage" type="file" name="file" (change)="onFileChange($event)" >
+    <input id="photoName" type="text" name="photoName" (change)="onPhotoNameChange($event)" >
+    
+    <input id="photoDescription" type="text" name="photoDescription" (change)="onPhotoDescriptionChange($event)" >
+    <button type="button" (click)="uploadPhoto()">Upload</button>
 </form>
