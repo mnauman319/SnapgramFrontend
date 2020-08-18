@@ -31,7 +31,7 @@ export class PhotouploadComponent implements OnInit {
     formData.append('file', files.item(0), files.item(0).name);
 
     let s3url= await this.photoService.uploadPhotoToS3(formData)
-    //console.log(s3url)
+    console.log(s3url)
     
  
 
