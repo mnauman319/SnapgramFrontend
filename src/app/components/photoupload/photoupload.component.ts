@@ -16,23 +16,46 @@ export class PhotouploadComponent implements OnInit {
 
   currentUser:User;
   photoToUpload:Photo;
+  files: FileList = null;
 
 
   ngOnInit(): void {
     this.setTitle();
     this.currentUser = this.userService.loggedInUser;
     console.log(this.currentUser);
+    this.photoToUpload = new Photo(null,"","","",null);
   }
 
-  async uploadPhoto(files: FileList){
+  onFileChange(event){
+    this.files = event.target.files;
+  }
 
-    console.log(files);
+  onPhotoNameChange(event){
+ 
+    this.photoToUpload.photoName = event.target.value
+  }
+  onPhotoDescriptionChange(event){
+    this.photoToUpload.photoDescription = event.target.value
+  }
+
+
+  async uploadPhoto(){
+
+    console.log(this.files);
     let formData = new FormData();
-    formData.append('file', files.item(0), files.item(0).name);
+    formData.append('file', this.files.item(0), this.files.item(0).name);
 
     let s3url= await this.photoService.uploadPhotoToS3(formData)
-    //console.log(s3url)
-    
+    console.log(s3url)
+
+    // Set s3url to photo object
+    this.photoToUpload.photoUrl = s3url.toString();
+
+    // Call createPhoto to post photo to current user
+    console.log(this.photoToUpload);
+    let uploadedPhoto = await this.photoService.createPhoto(this.photoToUpload,this.currentUser.userId);
+
+    console.log(uploadedPhoto);
  
 
   }

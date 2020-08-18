@@ -9,7 +9,7 @@ export class PhotoService {
   constructor(private http:HttpClient) { }
 
   async createPhoto(photo:Photo, uId:number):Promise<Photo>{
-    photo = await this.http.post<Photo>(`http://localhost:8080/user/${uId}/photos`, photo).toPromise();
+    photo = await this.http.post<Photo>(`http://localhost:8080/users/${uId}/photos/`, photo).toPromise();
     return photo;
   }
 

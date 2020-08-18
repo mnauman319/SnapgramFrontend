@@ -7,7 +7,7 @@ import { User } from 'src/app/models/user';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  styleUrls: ['./homepage.component.scss', './homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
 
@@ -24,7 +24,7 @@ export class HomepageComponent implements OnInit {
     else{
       this.currentUser = this.userService.loggedInUser;
     }
-      // this.setCurrentUser();
+     // this.setCurrentUser();
       this.setTitle();
   }
   setTitle(){
