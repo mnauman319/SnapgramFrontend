@@ -13,10 +13,6 @@ import { User } from 'src/app/models/user';
 })
 export class PhotoviewComponent implements OnInit {
 
-  // @Input() uId:number;
-
-  
-  
   photos:Photo[];
   
   constructor(private pserv:PhotoService, private router:Router) { }
