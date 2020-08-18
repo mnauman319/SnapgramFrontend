@@ -1,0 +1,47 @@
+
+
+.photoview-content{ 
+    height:99%;
+    width:99%;
+    overflow:auto;
+}
+
+md-grid-tile{
+    height: calc(100vh - 24px);
+    border:  1px solid black;
+}
+
+.search-bar{
+    min-width: 100%;
+    min-height: 100%;
+    font-size: x-large;
+    padding-bottom: 0;
+    margin-top:1em;
+    
+}
+
+.add-photo{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: x-large;
+}
+
+.add-photo mat-label{
+    padding-right: 15%;
+}
+
+.expansion-bar .expansion-bar-header{
+    margin-top: 4em;
+    margin-bottom: 4em;
+    
+}
+.expansion-bar mat-expansion-panel-header{
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+.expansion-bar .expansion-bar-spacer{
+    flex: 1 1 auto;
+    
+}
+
+

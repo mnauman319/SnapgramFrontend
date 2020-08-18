@@ -3,19 +3,19 @@
 </div>  -->
 
 
-<mat-grid-list cols="12" rowHeight="550px" [gutterSize]="'10px'">
+<mat-grid-list cols="12" rowHeight="550px">
     <mat-grid-tile *ngFor ="let photo of photos" class="card-tile" [colspan] = "4" [rowspan]="1">
         <mat-card id="card">
             <div id="card-content">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image" style="background-image: url({{photo.photoUrl}})"></div>
                     <mat-card-title>{{photo.photoName}}</mat-card-title>
-                    <mat-card-subtitle>{{photo.photoDescription}}</mat-card-subtitle>
+                    <mat-card-subtitle>#Nature</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image class="card-image" src="{{photo.photoUrl}}" alt="{{photo.photoName}}" (click)="selectPhoto(photo)">
                 <mat-card-content>
                     <p>
-                    Maybe tags go here
+                    {{photo.photoDescription}}
                     </p>
                 </mat-card-content>
                 <mat-card-actions>
