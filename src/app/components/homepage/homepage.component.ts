@@ -18,23 +18,23 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
     
     // //It will not allow people to go to home page if they are not logged in
-    // if(this.userService.loggedInUser === undefined){
-    //   this.router.navigateByUrl("/login")
-    // }
-    // else{
-    //   this.currentUser = this.userService.loggedInUser;
-    // }
-      this.setCurrentUser();
+    if(this.userService.loggedInUser === undefined){
+      this.router.navigateByUrl("/login")
+    }
+    else{
+      this.currentUser = this.userService.loggedInUser;
+    }
+      // this.setCurrentUser();
       this.setTitle();
   }
   setTitle(){
     this.titleService.setTitle("SnapGram");
   }
 
-  async setCurrentUser(){
-    let user:User = await this.userService.testingUser();
-    this.currentUser = user;
-  }
+  // async setCurrentUser(){
+  //   let user:User = await this.userService.testingUser();
+  //   this.currentUser = user;
+  // }
 
   openUploadPhoto(){
     this.router.navigateByUrl("/upload")
