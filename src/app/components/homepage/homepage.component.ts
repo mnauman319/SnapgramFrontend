@@ -17,14 +17,14 @@ export class HomepageComponent implements OnInit {
   user:User;
   ngOnInit(): void {
     
-    // //It will not allow people to go to home page if they are not logged in
-    // if(this.userService.loggedInUser === undefined){
-    //   this.router.navigateByUrl("/login")
-    // }
-    // else{
-    //   this.currentUser = this.userService.loggedInUser;
-    // }
-      this.setCurrentUser();
+    //It will not allow people to go to home page if they are not logged in
+    if(this.userService.loggedInUser === undefined){
+      this.router.navigateByUrl("/login")
+    }
+    else{
+      this.currentUser = this.userService.loggedInUser;
+    }
+     // this.setCurrentUser();
       this.setTitle();
   }
   setTitle(){
