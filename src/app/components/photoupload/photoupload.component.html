@@ -3,7 +3,17 @@
 <form>
     <input id="photoUploadImage" type="file" name="file" (change)="onFileChange($event)" >
     <input id="photoName" type="text" name="photoName" (change)="onPhotoNameChange($event)" >
-    
+ 
     <input id="photoDescription" type="text" name="photoDescription" (change)="onPhotoDescriptionChange($event)" >
+
+
+    <input id="addTag" type="text" name="addTag" (change)="onAddTagChange($event)" >
+
     <button type="button" (click)="uploadPhoto()">Upload</button>
 </form>
+
+<ul>
+    <li *ngFor='let tag of tagsToUpload'>
+        {{ tag.tagName }}
+    </li>
+  </ul>
