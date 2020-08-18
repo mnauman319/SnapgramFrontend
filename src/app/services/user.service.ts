@@ -9,7 +9,7 @@ export class UserService {
   //if we want to persist the data through refreshes then we need to use local storage or cookie
   //this userService will get cleared on refresh
   loggedInUser:User;
-  
+  // searcherdUser:User;
 
   constructor(private http:HttpClient) { }
 

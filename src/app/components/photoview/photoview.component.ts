@@ -5,6 +5,7 @@ import { Photo } from '../../models/photo'
 import { PhotoService } from 'src/app/services/photo.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-photoview',
@@ -19,16 +20,16 @@ export class PhotoviewComponent implements OnInit {
   
   photos:Photo[];
   
-  constructor(private pserv:PhotoService, private router:Router) { }
+  constructor(private pserv:PhotoService, private router:Router,private userService:UserService) { }
 
   selectedPhoto:Photo;
 
   ngOnInit(): void {
-    this.forTesting();
+    this.populatePhotos();
   }
 
-  async forTesting(){
-    this.photos = await this.pserv.getPhotosByUid(1);
+  async populatePhotos(){
+    this.photos = await this.pserv.getPhotosByUid(this.userService.loggedInUser.userId);
   }
 
   selectPhoto(photo:Photo) {
