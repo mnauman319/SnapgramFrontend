@@ -22,31 +22,30 @@ export class HomepageComponent implements OnInit {
   
   storedPhotos:Photo[];     //storaged of searched user's photos
   displayedPhotos:Photo[];  //photo array sent to photoview component
-  filterInput:string;       //
+  filterInput:string;       //string input for filtering storedPhotos
 
   ngOnInit(): void {
     
 
     // //It will not allow people to go to home page if they are not logged in
-    if(this.userService.loggedInUser === undefined){
-      this.router.navigateByUrl("/login")
-    }
-    else{
-      this.currentUser = this.userService.loggedInUser;
-      this.getUserPhotos(this.currentUser.userId);
-    }
-    //  this.setCurrentUser();
-
+    // if(this.userService.loggedInUser === undefined){
+    //   this.router.navigateByUrl("/login")
+    // }
+    // else{
+    //   this.currentUser = this.userService.loggedInUser;
+    // }
+      this.setCurrentUser();
       this.setTitle();
   }
   setTitle(){
     this.titleService.setTitle("SnapGram");
   }
 
-  // async setCurrentUser(){
-  //   let user:User = await this.userService.testingUser();
-  //   this.currentUser = user;
-  // }
+  async setCurrentUser(){
+    let user:User = await this.userService.testingUser();
+    this.currentUser = user;
+    this.getUserPhotos(this.user.userId);
+  }
 
   async getUserPhotos(userId:number){
     this.storedPhotos = await this.photoService.getPhotosByUid(userId);
@@ -59,10 +58,16 @@ export class HomepageComponent implements OnInit {
       let filteredPhotos:Photo[]=[];
       
       for(let photo of this.storedPhotos){
-        for(let tag of photo.tags){
-          if(tag.tagName.includes(this.filterInput)){
-            filteredPhotos.push(photo);
-            break;
+        
+        if(photo.photoName.includes(this.filterInput)){
+          filteredPhotos.push(photo);
+        }else{
+
+          for(let tag of photo.tags){
+            if(tag.tagName.includes(this.filterInput)){
+              filteredPhotos.push(photo);
+              break;
+            }
           }
         }
       }

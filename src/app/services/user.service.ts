@@ -18,11 +18,11 @@ export class UserService {
     return user;
   }
 
-  // async testingUser(){
-  //   let user:User;
-  //   user = await this.http.get<User>(`http://localhost:8080/users/1`).toPromise();
-  //   return user;
-  // }
+  async testingUser(){
+    let user:User;
+    user = await this.http.get<User>(`http://localhost:8080/users/1`).toPromise();
+    return user;
+  }
 
   async searchUserByUsername(username:string){
     let user:User;
