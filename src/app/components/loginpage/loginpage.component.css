@@ -1,28 +1,77 @@
+/* 
+#B2E8E8
+#314D63
+#8FB9AB
+#F4D096
+#F08976 
+*/
 
+.half1{
+  background-color: #B2E8E8;
+  width: 35%;
+  height:100%;
+  
+  
+}
 
+.half2{
+  width:65%;
+  height:100%;
+  
+}
 
-  /* .example-container .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-    margin-top: 5px;
-  }
-  #login_content{
-    margin: auto;
-    width: 50%;
-    padding-top: 50%;
-    border: 3px solid purple;
-    padding: 10px;
-    text-align: center;
-  }
+.half1-diag1{
+  background-color: #BC5387;
+  width:115%;
+  height:100%;
+  transform: rotate(-12deg);
+  border-bottom: 120px solid #BC5387;
+  box-shadow: 1px 1px 1px 0px #ad276ad0;
+ 
+}
+.half1-diag2{
+  background-color: #DF6666;
+  width:95%;
+  height:100%;
+  transform: rotate(3deg);
+  border-bottom: 60px solid #DF6666;
+  box-shadow: 2px 2px 4px 0px #b63535c7;
+ 
+}
+.half1-diag3{
+  background-color: #F8BD70;
+  width:94%;
+  height:100%;
+  transform: rotate(3deg);
+  border-bottom: 60px solid #F8BD70;
+  box-shadow: 2px 2px 4px 0px #ac7936c0;
+}
 
-  #login_btn{
-    color: whitesmoke;
-    background-color: navy;
-    width: 200px;
-  }
+.half1-diag4{
+  background-color: #F8D99A;
+  width:94%;
+  height:100%;
+  transform: rotate(3deg);
+  border-bottom: 60px solid #F8D99A;
+  border-top: 120px solid #F8D99A;
+  box-shadow: 2px 2px 4px 0px #c4a260e7;
+}
 
-  #register_user_btn{
-    margin-top: 15px;
-    color: whitesmoke;
-    background-color: green;
-    width: 200px;
-  } */
+.half1-face{
+  position: absolute;
+  top:0;
+  left:0;
+  background-color: #F8D99A;
+  width:30%;
+  height:100%;
+  
+}
+
+.background{
+  top:-100px;
+  display:flex;
+  justify-content: center;
+  width:100%;
+  height:100%;
+  overflow: hidden;
+}
