@@ -13,12 +13,14 @@ import { Router } from '@angular/router';
 })
 export class PhotoviewComponent implements OnInit {
 
+
   @Input() photos:Photo[];
   selectedPhoto:Photo;
 
   constructor(private pserv:PhotoService, private userv:UserService, private router:Router) { }
 
   ngOnInit(): void {}
+
 
   selectPhoto(photo:Photo) {
     this.selectedPhoto = photo; 
