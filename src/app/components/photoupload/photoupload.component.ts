@@ -77,7 +77,6 @@ export class PhotouploadComponent implements OnInit {
 
     
 
-
     // Navigate back to photoview
     this.router.navigateByUrl("/home");
 
