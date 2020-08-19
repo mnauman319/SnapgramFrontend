@@ -28,24 +28,25 @@ export class HomepageComponent implements OnInit {
     
 
     // //It will not allow people to go to home page if they are not logged in
-    // if(this.userService.loggedInUser === undefined){
-    //   this.router.navigateByUrl("/login")
-    // }
-    // else{
-    //   this.currentUser = this.userService.loggedInUser;
-    // }
-      this.setCurrentUser();
+    if(this.userService.loggedInUser === undefined){
+      this.router.navigateByUrl("/login")
+    }
+    else{
+      this.currentUser = this.userService.loggedInUser;
+      this.getUserPhotos(this.currentUser.userId);
+    }
+    //  this.setCurrentUser();
+
       this.setTitle();
   }
   setTitle(){
     this.titleService.setTitle("SnapGram");
   }
 
-  async setCurrentUser(){
-    let user:User = await this.userService.testingUser();
-    this.currentUser = user;
-    this.getUserPhotos(this.user.userId);
-  }
+  // async setCurrentUser(){
+  //   let user:User = await this.userService.testingUser();
+  //   this.currentUser = user;
+  // }
 
   async getUserPhotos(userId:number){
     this.storedPhotos = await this.photoService.getPhotosByUid(userId);
@@ -58,17 +59,16 @@ export class HomepageComponent implements OnInit {
       let filteredPhotos:Photo[]=[];
       
       for(let photo of this.storedPhotos){
-        
+        console.log(photo.photoName);
         if(photo.photoName.includes(this.filterInput)){
           filteredPhotos.push(photo);
         }else{
-
-          for(let tag of photo.tags){
-            if(tag.tagName.includes(this.filterInput)){
-              filteredPhotos.push(photo);
-              break;
-            }
+        for(let tag of photo.tags){
+          if(tag.tagName.includes(this.filterInput)){
+            filteredPhotos.push(photo);
+            break;
           }
+        }
         }
       }
       this.displayedPhotos = filteredPhotos;

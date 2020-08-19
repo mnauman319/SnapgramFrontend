@@ -3,7 +3,7 @@
         <mat-expansion-panel-header>
             <mat-panel-title class="expansion-bar-header">
                 <span>
-                    <button mat-button ><mat-icon>account_circle</mat-icon> <mat-label> {{currentUser.username}}</mat-label></button>
+                    <button mat-button ><mat-icon>account_circle</mat-icon> <mat-label id="homepage-username-label"> {{currentUser.username}}</mat-label></button>
                 </span>
                 <span class="expansion-bar-spacer"></span>
                 <button mat-button><mat-icon matBadge="11" matBadgeColor="warn">notifications</mat-icon></button>
@@ -27,7 +27,7 @@
         <mat-grid-tile [colspan]="8" [rowspan]="10"> </mat-grid-tile>
         <mat-grid-tile [colspan]="3" [rowspan]="10">
             <div class="container">
-                <input type="text" placeholder="Search..." (keyup)="search()" [(ngModel)]="searchName">
+                <input id="user-lookup" type="text" placeholder="Search..." (keyup)="search()" [(ngModel)]="searchName">
                 <div class="search"></div>
                 <div class="label"></div>
                 

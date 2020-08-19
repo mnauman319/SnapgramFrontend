@@ -9,8 +9,8 @@
             <div id="card-content">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image" style="background-image: url({{photo.photoUrl}})"></div>
-                    <mat-card-title>{{photo.photoName}}</mat-card-title>
-                    <mat-card-subtitle><span *ngFor ="let tag of photo.tags">#{{tag.tagName}} </span></mat-card-subtitle>
+                    <mat-card-title id="card-title">{{photo.photoName}}</mat-card-title>
+                    <mat-card-subtitle><span *ngFor ="let tag of photo.tags" id="tagSpan">#{{tag.tagName}} </span></mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image class="card-image" src="{{photo.photoUrl}}" alt="{{photo.photoName}}" (click)="selectPhoto(photo)">
                 <mat-card-content>
