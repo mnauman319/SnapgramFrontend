@@ -10,7 +10,7 @@
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image" style="background-image: url({{photo.photoUrl}})"></div>
                     <mat-card-title>{{photo.photoName}}</mat-card-title>
-                    <mat-card-subtitle>#Nature</mat-card-subtitle>
+                    <mat-card-subtitle><span *ngFor ="let tag of photo.tags">#{{tag.tagName}} </span></mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image class="card-image" src="{{photo.photoUrl}}" alt="{{photo.photoName}}" (click)="selectPhoto(photo)">
                 <mat-card-content>
@@ -40,12 +40,11 @@
             
         <div class = "modal-body">
             <img src="{{selectedPhoto.photoUrl}}" alt="{{selectedPhoto.photoName}}">
-                
         </div>
 
         <div class = "modal-footer">
-            <br>
             <div>{{selectedPhoto.photoDescription}}</div>
+            <span *ngFor ="let tag of selectedPhoto.tags">#{{tag.tagName}} </span>
         </div>
 
         </div>
