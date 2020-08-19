@@ -6,14 +6,21 @@
  
     <input id="photoDescription" type="text" name="photoDescription" (change)="onPhotoDescriptionChange($event)" >
 
+    <div id=createTags>
+        <input id="addTag" [(ngModel)]='typedTagToSubmit' name="addTag" type="text" >
+        <button id="addTagButton"type="button" (click)="addLocalTag()">add Tag</button>
 
-    <input id="addTag" type="text" name="addTag" (change)="onAddTagChange($event)" >
+    </div>
+
 
     <button id="savePhotoButton"type="button" (click)="uploadPhoto()">Upload</button>
 </form>
 
 <ul>
     <li *ngFor='let tag of tagsToUpload'>
-        {{ tag.tagName }}
+        <div id=tagHolder>
+            {{ tag.tagName }}
+            <span class="close" (click)="deleteLocalTag(tag.tagName)">&times;</span>
+        </div>
     </li>
   </ul>
