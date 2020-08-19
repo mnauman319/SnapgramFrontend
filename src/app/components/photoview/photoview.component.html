@@ -45,6 +45,21 @@
         <div class = "modal-footer">
             <div>{{selectedPhoto.photoDescription}}</div>
             <span *ngFor ="let tag of selectedPhoto.tags">#{{tag.tagName}} </span>
+
+        <div *ngIf = "canEdit">
+            <form>
+                <input id="photoUploadImage" type="file" name="file" (change)="onFileChange($event)" >
+                <input id="photoName" type="text" name="photoName" (change)="onPhotoNameChange($event)" >
+             
+                <input id="photoDescription" type="text" name="photoDescription" (change)="onPhotoDescriptionChange($event)" >
+            
+            
+                <input id="addTag" type="text" name="addTag" (change)="onAddTagChange($event)" >
+            
+                <button id="savePhotoButton"type="button" (click)="uploadPhoto()">Upload</button>
+            </form>
+        </div>
+
         </div>
 
         </div>

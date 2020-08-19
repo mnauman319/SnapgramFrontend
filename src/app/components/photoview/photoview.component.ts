@@ -16,14 +16,18 @@ export class PhotoviewComponent implements OnInit {
 
   @Input() photos:Photo[];
   selectedPhoto:Photo;
+  canEdit:boolean;
 
   constructor(private pserv:PhotoService, private userv:UserService, private router:Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.canEdit = this.userv.loggedInUser.userId === this.pserv.searchedUserId;
+  }
 
 
   selectPhoto(photo:Photo) {
     this.selectedPhoto = photo; 
+    this.canEdit = this.userv.loggedInUser.userId === this.pserv.searchedUserId;
   }
 
   closeModal(){
@@ -31,4 +35,9 @@ export class PhotoviewComponent implements OnInit {
       this.selectedPhoto = null;
     }
   }
+
+  clickevent(event){
+    console.log(event);
+  }
+
 }
