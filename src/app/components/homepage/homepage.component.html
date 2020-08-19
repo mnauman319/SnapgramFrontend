@@ -60,7 +60,7 @@
             </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="6" [rowspan]="12"> </mat-grid-tile>
-        <mat-grid-tile class="add-photo" [colspan]="4" [rowspan]="12">
+        <mat-grid-tile class="add-photo" [colspan]="4" [rowspan]="12" *ngIf="user.userId === currentUser.userId">
             <mat-label>New Photo </mat-label>
             <button id ="add-photo-button" mat-mini-fab color="accent" (click)="openUploadPhoto()"><mat-icon>add_a_photo</mat-icon></button>
         </mat-grid-tile>

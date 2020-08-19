@@ -86,6 +86,11 @@ export class HomepageComponent implements OnInit {
    if(this.user !== null){
     this.getUserPhotos(this.user.userId);
    }
+   if(this.searchName ===""){
+     this.user = this.currentUser;
+     this.getUserPhotos(this.user.userId);
+   }
+   
 
   }
 }
