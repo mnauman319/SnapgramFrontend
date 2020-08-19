@@ -22,7 +22,7 @@ export class HomepageComponent implements OnInit {
   
   storedPhotos:Photo[];     //storaged of searched user's photos
   displayedPhotos:Photo[];  //photo array sent to photoview component
-  filterInput:string;       //
+  filterInput:string;       //string input for filtering storedPhotos
 
   ngOnInit(): void {
     
@@ -34,8 +34,7 @@ export class HomepageComponent implements OnInit {
     // else{
     //   this.currentUser = this.userService.loggedInUser;
     // }
-     this.setCurrentUser();
-     this.getUserPhotos(this.currentUser.userId);
+      this.setCurrentUser();
       this.setTitle();
   }
   setTitle(){
@@ -45,6 +44,7 @@ export class HomepageComponent implements OnInit {
   async setCurrentUser(){
     let user:User = await this.userService.testingUser();
     this.currentUser = user;
+    this.getUserPhotos(this.user.userId);
   }
 
   async getUserPhotos(userId:number){
@@ -58,10 +58,16 @@ export class HomepageComponent implements OnInit {
       let filteredPhotos:Photo[]=[];
       
       for(let photo of this.storedPhotos){
-        for(let tag of photo.tags){
-          if(tag.tagName.includes(this.filterInput)){
-            filteredPhotos.push(photo);
-            break;
+        
+        if(photo.photoName.includes(this.filterInput)){
+          filteredPhotos.push(photo);
+        }else{
+
+          for(let tag of photo.tags){
+            if(tag.tagName.includes(this.filterInput)){
+              filteredPhotos.push(photo);
+              break;
+            }
           }
         }
       }
