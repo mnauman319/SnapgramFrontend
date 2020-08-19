@@ -21,14 +21,12 @@ export class PhotouploadComponent implements OnInit {
   currentUser:User;
   photoToUpload:Photo;
   files: FileList = null;
-  currTag: Tag;
   tagsToUpload: Tag[] = [];
-
+  typedTagToSubmit: string;
 
   ngOnInit(): void {
     this.setTitle();
     this.currentUser = this.userService.loggedInUser;
-    console.log(this.currentUser);
     this.photoToUpload = new Photo(null,"","","",null);
   }
 
@@ -44,11 +42,14 @@ export class PhotouploadComponent implements OnInit {
     this.photoToUpload.photoDescription = event.target.value
   }
 
-  onAddTagChange(event){
-    console.log(event.target.value);
-  //  this.currTag = new Tag(null,event.target.value.toString())
-    this.tagsToUpload.push(new Tag(null,event.target.value))
 
+  addLocalTag(){
+    this.tagsToUpload.push(new Tag(null,this.typedTagToSubmit));
+
+  }
+
+  deleteLocalTag(tag){
+    this.tagsToUpload = this.tagsToUpload.filter(item => item.tagName !== tag);
   }
 
   async uploadPhoto(){
