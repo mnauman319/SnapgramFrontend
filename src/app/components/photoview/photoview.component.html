@@ -40,12 +40,11 @@
             
         <div class = "modal-body">
             <img src="{{selectedPhoto.photoUrl}}" alt="{{selectedPhoto.photoName}}">
-                
         </div>
 
         <div class = "modal-footer">
-            <br>
             <div>{{selectedPhoto.photoDescription}}</div>
+            <span *ngFor ="let tag of selectedPhoto.tags">#{{tag.tagName}} </span>
         </div>
 
         </div>
