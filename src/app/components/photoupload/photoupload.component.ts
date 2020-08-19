@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { PhotoService } from 'src/app/services/photo.service';
+import { TagService } from 'src/app/services/tag.service';
+
 import { User } from 'src/app/models/user';
 import { Photo} from 'src/app/models/photo';
+import { Tag } from 'src/app/models/tag';
 
 @Component({
   selector: 'app-photoupload',
@@ -12,11 +16,13 @@ import { Photo} from 'src/app/models/photo';
 })
 export class PhotouploadComponent implements OnInit {
 
-  constructor(private titleService:Title, private userService:UserService, private photoService:PhotoService) { }
+  constructor(private router:Router, private titleService:Title, private userService:UserService, private photoService:PhotoService, private tagService:TagService) { }
 
   currentUser:User;
   photoToUpload:Photo;
   files: FileList = null;
+  currTag: Tag;
+  tagsToUpload: Tag[] = [];
 
 
   ngOnInit(): void {
@@ -38,6 +44,12 @@ export class PhotouploadComponent implements OnInit {
     this.photoToUpload.photoDescription = event.target.value
   }
 
+  onAddTagChange(event){
+    console.log(event.target.value);
+  //  this.currTag = new Tag(null,event.target.value.toString())
+    this.tagsToUpload.push(new Tag(null,event.target.value))
+
+  }
 
   async uploadPhoto(){
 
@@ -57,6 +69,17 @@ export class PhotouploadComponent implements OnInit {
 
     console.log(uploadedPhoto);
  
+    // call create tag on all tags requested to be made.
+    this.tagsToUpload.forEach(async tag => {
+      let uploadedTag = await this.tagService.createTag(tag,this.currentUser.userId,uploadedPhoto.photoId);
+    });
+
+    
+
+
+    // Navigate back to photoview
+    this.router.navigateByUrl("/home");
+
 
   }
   setTitle(){
