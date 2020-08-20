@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service'
 import { User } from 'src/app/models/user';
@@ -8,15 +8,17 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-registerpage',
   templateUrl: './registerpage.component.html',
-  styleUrls: ['./registerpage.component.css']
+  styleUrls: ['./registerpage.component.scss']
 })
 export class RegisterpageComponent implements OnInit {
 
+  @Output() slideToggleBack = new EventEmitter<boolean>();
   new_username:string;
   new_password:string;
   new_fname:string;
   new_lname:string;
   hidePassword:boolean = true;
+  
   constructor(private router:Router,private userService:UserService,private titleService:Title) { }
 
   ngOnInit(): void {
@@ -41,5 +43,9 @@ export class RegisterpageComponent implements OnInit {
   }
   setTitle(){
     this.titleService.setTitle("SnapGram - Register User");
+  }
+
+  openSignInView() :void {
+    this.slideToggleBack.next(false);
   }
 }
