@@ -9,7 +9,7 @@ import { User } from 'src/app/models/user';
 import { Photo} from 'src/app/models/photo';
 import { Tag } from 'src/app/models/tag';
 import { ViewChild, ElementRef} from "@angular/core";
-//import * as tf from "@tensorflow/tfjs";
+import * as tf from "@tensorflow/tfjs";
 import { IMAGENET_CLASSES } from "src/assets/imagenet-classes";
 import { SelectorFlags } from '@angular/compiler/src/core';
 
