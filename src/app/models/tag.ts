@@ -4,13 +4,9 @@ export class Tag{
 
     tagId:number;
     tagName:string;
-    photo:Photo;
 
-    constructor(tagId:number,
-        tagName:string,
-        photo:Photo) {
+    constructor(tagId:number,tagName:string) {
         this.tagId = tagId;
         this.tagName = tagName;
-        this.photo = photo;
     }
 }

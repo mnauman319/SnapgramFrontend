@@ -17,7 +17,7 @@
                 <button mat-button><mat-label>Privacy </mat-label><mat-icon>security</mat-icon></button>
             </p>
             <p>
-                <button mat-button (click)="signOut()"><mat-label>Sign Out </mat-label><mat-icon>keyboard_return</mat-icon></button>
+                <button mat-button (click)="signOut()" id="logout_btn"><mat-label>Sign Out </mat-label><mat-icon>keyboard_return</mat-icon></button>
             </p>
     </mat-expansion-panel> 
 </mat-accordion>
@@ -27,7 +27,7 @@
         <mat-grid-tile [colspan]="8" [rowspan]="10"> </mat-grid-tile>
         <mat-grid-tile [colspan]="3" [rowspan]="10">
             <div class="container">
-                <input type="text" placeholder="Search...">
+                <input type="text" placeholder="Search..." (keyup)="search()" [(ngModel)]="searchName">
                 <div class="search"></div>
                 <div class="label"></div>
                 
@@ -56,7 +56,7 @@
         <mat-grid-tile [colspan]="10" [rowspan]="12"> 
             <mat-form-field class='search-bar'>
                     <mat-label>Filter</mat-label>
-                    <input matInput placeholder="Ex. Nature" value="" (keyup)="search()" [(ngModel)]="searchName">
+                    <input matInput placeholder="Ex. Nature" value="" (keyup)="filter()" [(ngModel)]="filterInput">
             </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="6" [rowspan]="12"> </mat-grid-tile>
@@ -73,7 +73,7 @@
         <mat-grid-tile [colspan]="1" [rowspan]="75"> </mat-grid-tile>
         <mat-grid-tile id="photoview-container" [colspan]="10" [rowspan]="75">
             <div class="photoview-content">
-                <app-photoview></app-photoview>
+                <app-photoview [photos]="displayedPhotos"></app-photoview>
             </div>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1" [rowspan]="75"> </mat-grid-tile>

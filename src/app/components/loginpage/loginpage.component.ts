@@ -40,6 +40,8 @@ export class LoginpageComponent implements OnInit {
     let user:User = await this.userService.attemptLogin(this.username,this.password);
     if(user !== null){
       this.userService.loggedInUser = user;
+      console.log(user);
+      
       this.router.navigateByUrl("/home");
     }else{
       alert("Incorrect Username or Password try again!");
