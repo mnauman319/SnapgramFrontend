@@ -1,18 +1,23 @@
 <p>photoupload works!</p>
 
 <form>
-    <input id="photoUploadImage" type="file" name="file" (change)="onFileChange($event)" >
-    <input id="photoName" type="text" name="photoName" (change)="onPhotoNameChange($event)" >
+   
+    <input #fileUpload type="file" id="photoUploadImage" name="files" (change)="onFileChange($event)" >
+
+    <img #chosenImage width="224" height="224" class="sample-image" />
  
-    <input id="photoDescription" type="text" name="photoDescription" (change)="onPhotoDescriptionChange($event)" >
+  
+
+    Photo Name: <input id="photoName" type="text" name="photoName" (change)="onPhotoNameChange($event)" >
+ 
+    Photo Description: <input id="photoDescription" type="text" name="photoDescription" (change)="onPhotoDescriptionChange($event)" >
 
     <div id=createTags>
+      Tags :
         <input id="addTag" [(ngModel)]='typedTagToSubmit' name="addTag" type="text" >
         <button id="addTagButton"type="button" (click)="addLocalTag()">add Tag</button>
 
     </div>
-
-
     <button id="savePhotoButton"type="button" (click)="uploadPhoto()">Upload</button>
 </form>
 
@@ -24,3 +29,5 @@
         </div>
     </li>
   </ul>
+
+
