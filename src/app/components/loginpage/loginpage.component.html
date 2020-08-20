@@ -1,37 +1,74 @@
-<!-- <div id="login_content"> -->
-  <!-- <h1>Login</h1> -->
+<div class="background">
 
-  <mat-grid-list cols="12" rowHeight="1%">
-    <mat-grid-tile [colspan]="12" [rowspan]="20" style="background-color:rgb(137, 255, 122)"> Banner</mat-grid-tile>
-    <mat-grid-tile [colspan]="2" [rowspan]="75" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
-    <mat-grid-tile [colspan]="8" [rowspan]="25"> </mat-grid-tile>
-    <mat-grid-tile [colspan]="2" [rowspan]="75" style="background-color:rgb(255, 122, 139)"> 2</mat-grid-tile>
-    <mat-grid-tile [colspan]="8" [rowspan]="15"> 
-        <h1>Login</h1>
-        <p>
-          <mat-form-field appearance="fill">
-            <mat-label id="username_input">Enter username</mat-label>
-            <input matInput placeholder="matt1992" [(ngModel)]="username" id="username_input">
-          </mat-form-field>
-        </p>
-        <p>
-          <mat-form-field appearance="fill">
-            <mat-label id="password_input">Enter password</mat-label>
-            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="bestPassEva" [(ngModel)]="password" id="password_input">
-            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
-              <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-          </mat-form-field>
-        </p>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="8" [rowspan]="8" > 
-      <button mat-raised-button id="login_btn" (click)="loginUser()">Login</button>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="8" [rowspan]="8"> 
-      <button mat-raised-button id="register_user_btn" (click)="openRegistrationView()">Register New Account</button> 
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="8" [rowspan]="4"> </mat-grid-tile>
-    <mat-grid-tile [colspan]="12" [rowspan]="5" style="background-color:rgb(228, 122, 255)"> Footer</mat-grid-tile>
-  </mat-grid-list>
+  
+
+  <div class="container">
+    <input [(ngModel)]="slideToggle" id="fake-register-btn" class="fake-btn" type="checkbox">
+    <div class="half1-diag1"></div>
+    <div class="half1-diag2"></div>
+    <div class="half1-diag3"></div>
+    <div class="half1-diag4"></div>
+    <div class="half1-diag5"></div>
+    <div class="half1-diag6"></div>
+    <div class="login-form-container">
+      <div class="example-form">
+        <div class="spacer"></div>
+        <div class="login-field">
+          <mat-icon class="prepend-icon">person</mat-icon>
+          <input  [(ngModel)] ="username" placeholder="Username or Email" id="username_input">
+        </div>
+        <div class="login-field">
+          <mat-icon class="prepend-icon"> vpn_key</mat-icon>
+          <input [(ngModel)]="password" [type]="hidePassword ? 'password' : 'text'" placeholder="Password" id="password_input">
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </div>
+        <div class="login-btn">
+          <mat-checkbox>Remember me</mat-checkbox>
+          <span></span>
+          <button mat-raised-button id="login_btn" (click)="loginUser()">Login</button>
+        </div>
+        <div class="divider">
+          <div></div>
+          <span>or</span>
+          <div></div>
+        </div>
+        <div class="social-field fb">
+          <a href="https://www.facebook.com/angularjswiki" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6.0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9.0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7.0 24.8 11.1 24.8 24.7z" fill="#ffffff"></path></svg></a>
+          <button >LOG IN WITH FACEBOOK</button>
+        </div>
+        <div class="social-field go">
+          <a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 533.5 544.3"><path d="M533.5 278.4c0-18.5-1.5-37.1-4.7-55.3H272.1v104.8h147c-6.1 33.8-25.7 63.7-54.4 82.7v68h87.7c51.5-47.4 81.1-117.4 81.1-200.2z" fill="#4285f4"/><path d="M272.1 544.3c73.4 0 135.3-24.1 180.4-65.7l-87.7-68c-24.4 16.6-55.9 26-92.6 26-71 0-131.2-47.9-152.8-112.3H28.9v70.1c46.2 91.9 140.3 149.9 243.2 149.9z" fill="#34a853"/><path d="M119.3 324.3c-11.4-33.8-11.4-70.4 0-104.2V150H28.9c-38.6 76.9-38.6 167.5 0 244.4l90.4-70.1z" fill="#fbbc04"/><path d="M272.1 107.7c38.8-.6 76.3 14 104.4 40.8l77.7-77.7C405 24.6 339.7-.8 272.1 0 169.2 0 75.1 58 28.9 150l90.4 70.1c21.5-64.5 81.8-112.4 152.8-112.4z" fill="#ea4335"/></svg></a>
+          <button>
+            LOG IN WITH GOOGLE</button>
+        </div>
+        <div class="social-field tw">
+          <a href="https://twitter.com/angular_js" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645.0 138.72-105.583 298.558-298.558 298.558-59.452.0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055.0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421.0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391.0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04.0-57.828 46.782-104.934 104.934-104.934 30.213.0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" fill="#ffffff"></path></svg></a>
+          <button>LOG IN WITH TWITTER</button>
+        </div>
+        <div class="register-btn">
+          <h1>Dont have an account?</h1>
+          <button mat-raised-button id="register_btn" (click)="openRegistrationView()">Sign Up</button>
+          
+        </div>
+      </div>
+    </div>
+    <app-registerpage (slideToggleBack)="toggleBox($event)"></app-registerpage>
+    
+  </div>
+
+  
+
+  
+  
+
+
+</div>
+    
+  
+
+
+  
 
   

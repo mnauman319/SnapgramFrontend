@@ -1,34 +1,32 @@
-<div id="register_content">
-    <h1>Register New User</h1>
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Username</mat-label>
-            <input matInput placeholder="matt1992" [(ngModel)]="new_username" id="new_username_input">
-        </mat-form-field>
-        <a id="right_field">
-            <mat-form-field appearance="fill">
-                <mat-label>Password</mat-label>
-                <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="bestpasseva"
-                    [(ngModel)]="new_password" id="new_password_input">
-                <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
-                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
-                    <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-            </mat-form-field>
-        </a>
-    </p>
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>First name</mat-label>
-            <input matInput placeholder="Matt" id="new_fname_input" [(ngModel)]="new_fname">
-        </mat-form-field>
-        <a id="right_field">
-            <mat-form-field appearance="fill">
-                <mat-label>Last name</mat-label>
-                <input matInput placeholder="Richardson" [(ngModel)]="new_lname" id="new_lname_input">
-            </mat-form-field>
-        </a>
-    </p>
-    <button mat-raised-button id="submit_new_user" (click)="registerNewUser()">Submit</button>
-
-</div>
+ <div class="register-form-container">
+    <div class="register-form">
+      <h1>Create Your SnapGram Account</h1>
+      <div class="name-field">
+            <input placeholder="First Name" id="new_fname_input" [(ngModel)]="new_fname">
+            <input placeholder="Last Name" [(ngModel)]="new_lname" id="new_lname_input">
+      </div>
+      <div class="username-field">
+            <input placeholder="Username or Email" [(ngModel)]="new_username" id="new_username_input">
+      </div>
+      <div class="password-field">
+            <input [type]="hidePassword ? 'password' : 'text'" placeholder="Password"
+                [(ngModel)]="new_password" id="new_password_input">
+            
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+       
+      </div>
+      <div class="sign-in-btn">
+        <button mat-raised-button id="create_user_btn" (click)="registerNewUser()">Create Account</button>
+      </div>
+      <div class="divider">
+        <div></div>
+      </div>
+      <div class="sign-in-btn">
+        <h1>Returning User?</h1>
+        <button mat-raised-button id="sign_in_btn" (click)="openSignInView()">Sign In</button>
+      </div>
+    </div>
+  </div> 

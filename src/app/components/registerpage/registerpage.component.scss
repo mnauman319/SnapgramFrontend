@@ -1,0 +1,236 @@
+* {
+    box-sizing: border-box;
+  }
+  
+
+.register-form-container{
+    position:relative;
+    width:95%;
+    height:100%;
+    margin-left:5%;
+    right:0;
+    left:0%;
+    opacity:1;
+    display:flex;
+    align-items: center;
+    background-color: white;
+    transition: all 1s;
+    
+  }
+  
+  
+  .register-form {
+    position:absolute;
+    right:0;
+    left:0;
+    height:100%;
+    width: 100%;
+    transition: all 2s;
+    h1{
+        margin-top:5%;
+        text-align: center;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+    p{
+        text-align: center;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+    
+    
+  }
+  
+  .spacer{
+    width:100%;
+    margin-top:5%;
+  }
+
+  
+.name-field {
+    max-width: 50%;
+    margin-top:2em;
+    margin-left:25%;
+    height:7%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    
+    input{
+        text-align: left;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size:large;
+        height:40px;
+        width:40%;
+        padding:12px;
+        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+        border-radius: 0 5px 5px 0;
+        border:0;
+      ::placeholder{
+        font-size: large;
+      }
+    }
+  }
+
+  .username-field {
+    max-width: 50%;
+    margin-top:2em;
+    margin-left:25%;
+    height:7%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    input{
+        text-align: center;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size:large;
+        height:40px;
+        width:90%;
+        padding:12px;
+        border-radius:5px;
+        border:0;
+      ::placeholder{
+        font-size: large;
+      }
+    }
+  }
+
+  .password-field {
+    max-width: 50%;
+    margin-top:2em;
+    margin-left:25%;
+    height:7%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    input{
+      text-align: center;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      font-size:large;
+      height:40px;
+      width:90%;
+      padding:12px;
+      border-radius: 5px;
+      border:0;
+      ::placeholder{
+        font-size: large;
+      }
+      button{
+        margin-left:-42px;
+        padding-right:5px;
+        -webkit-appearance: none;
+       }
+    }
+  }
+  
+.login-btn{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin-top:2em;
+    margin-left:25%;
+    mat-checkbox{
+      font-size: large;
+    }
+    span{
+      flex: 1 1 auto;
+    }
+    button{
+      width: 25%;
+      background-color: rgb(255, 255, 255);
+    }
+  }
+  
+  .divider{
+    margin-top:40px;
+    margin-bottom:40px;
+    margin-left:25%;
+    width:50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    div{
+      width:40%;
+      border-bottom: 1px solid rgba(26, 26, 26, 0.2);
+    }
+    span{
+      text-align: center;
+      flex: 1 1 auto;
+    }
+  }
+  
+  
+  
+  .social-field{
+    max-width: 50%;
+    margin-top:2em;
+    margin-left:25%;
+    height:7%;
+    display: flex;
+    align-items: center;
+    border-radius:5px;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    a{
+      padding:10px;
+      height:100%;
+      border-radius: 5px 0 0 5px;
+      *{
+        height:100%;
+        width:auto;
+      }
+    }
+    button{
+      text-align: center;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      font-size:large;
+      color:white;
+      height:100%;
+      width:100%;
+      padding:12px;
+      border-radius: 0 5px 5px 0;
+      border:0;
+      border-left:1px solid rgba(26, 26, 26, 0.2);
+      padding-left:14px;
+    }
+    &.fb{
+      a{
+        background-color:#243B68
+      }
+      button{
+        background-color:#3A5998;
+      }
+    }
+    &.tw{
+      a{
+        background-color:#0A95CB
+      }
+      button{
+        background-color:#05ABED;
+      }
+    }
+    &.go{
+      a{
+        background-color:#ffffff;
+      }
+      button{
+        color:black;
+        background-color:#ffffff;
+      }
+    }
+    
+  }
+
+  .sign-in-btn{
+    max-width: 50%;
+    margin-top:2em;
+    margin-left:25%;
+    text-align: center;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size:large;
+    button{
+      width:20%
+    }
+    
+  }
