@@ -3,33 +3,45 @@
   
 
   <div class="container">
-    <button>press</button>
+    <input class="fake-btn" type="text" placeholder="Search...">
+    <div class="search"></div>
     <div class="half1-diag1"></div>
     <div class="half1-diag2"></div>
     <div class="half1-diag3"></div>
     <div class="half1-diag4"></div>
     <div class="half1-diag5"></div>
-    
-  </div>
-
-
-  <mat-grid-list style="position: static;" cols="12" rowHeight="1%">
-    <mat-grid-tile [colspan]="2" [rowspan]="75"> </mat-grid-tile>
-    <mat-grid-tile [colspan]="8" [rowspan]="75"> 
-          <mat-form-field appearance="fill">
-            <mat-label id="username_input">Enter username</mat-label>
-            <input matInput placeholder="matt1992" [(ngModel)]="username" id="username_input">
-            <mat-label id="password_input">Enter password</mat-label>
-            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="bestPassEva" [(ngModel)]="password" id="password_input">
+    <div class="half1-diag6">
+      <div class="login-form-container">
+        <div class="example-form">
+          <div class="spacer"></div>
+          <div class="login-field">
+            <mat-icon class="prepend-icon">person</mat-icon>
+            <input placeholder="Username or Email" id="username_input">
+          </div>
+          <div class="login-field">
+            <mat-icon class="prepend-icon"> vpn_key</mat-icon>
+            <input [type]="hidePassword ? 'password' : 'text'" placeholder="Password" id="password_input">
             <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
               <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
+          </div>
+          <div class="login-btn">
             <button mat-raised-button id="login_btn" (click)="loginUser()">Login</button>
-            <button mat-raised-button id="register_user_btn" (click)="openRegistrationView()">Register New Account</button> 
-          </mat-form-field>
-          </mat-grid-tile>
-          <mat-grid-tile [colspan]="2" [rowspan]="75" > </mat-grid-tile>
-  </mat-grid-list>
+          </div>
+          <div class="register-btn">
+            <button mat-raised-button id="register_user_btn" (click)="openRegistrationView()">Register New Account</button>  
+          </div>
+            
+        
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  
+
+  
   
 
 
@@ -39,6 +51,19 @@
     
 
 
+<!-- <mat-form-field appearance="fill">
+        <mat-label id="username_input">Enter username</mat-label>
+        <input matInput placeholder="matt1992" [(ngModel)]="username" id="username_input">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label id="password_input">Enter password</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="bestPassEva" [(ngModel)]="password" id="password_input">
+      </mat-form-field>   
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <button mat-raised-button id="login_btn" (click)="loginUser()">Login</button>
+        <button mat-raised-button id="register_user_btn" (click)="openRegistrationView()">Register New Account</button>  -->
 
     
   
