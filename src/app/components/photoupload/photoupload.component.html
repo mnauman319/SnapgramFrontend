@@ -25,7 +25,7 @@
     <li *ngFor='let tag of tagsToUpload'>
         <div id="tagHolder">
             {{ tag.tagName }}
-            <span class="close" (click)="deleteLocalTag(tag.tagName)">&times;</span>
+            <span class="close" id="deleteTagSpan" (click)="deleteLocalTag(tag.tagName)">&times;</span>
         </div>
     </li>
   </ul>
