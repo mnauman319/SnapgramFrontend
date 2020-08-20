@@ -30,7 +30,7 @@
 
 
 <div *ngIf ="selectedPhoto" class="modal">
-
+    
     <div class = "modal-content">
 
         <div class="modal-header">
@@ -43,9 +43,48 @@
         </div>
 
         <div class = "modal-footer">
-            <div>{{selectedPhoto.photoDescription}}</div>
-            <span *ngFor ="let tag of selectedPhoto.tags">#{{tag.tagName}} </span>
+
+        <div *ngIf = "canEdit">
+            
+                <label for="photoName">Title: </label>
+                <input id="photoName" type="text" [(ngModel)]='photoTitleInput'>
+                
+                <div>
+                <label for="photoDescription">Description: </label>
+                <center><textarea id="photoDescription" [(ngModel)]='photoDescInput' rows="3" style = "width:95%" >
+                </textarea>
+                </center>
+                </div>
+
+                <div><label for="createTags">Tags: </label></div>
+                <span class="tagList" *ngFor = "let tag of tempTagList">
+                    {{tag.tagName}}<span class="deleteTagBtn" (click)="deleteTag(tag)">&#x274C; &nbsp;</span>
+                </span>
+
+
+                <div id=createTags>
+                    <input id="addTag" [(ngModel)]='tagNameInput' name="addTag" type="text" >
+                    <button id="addTagButton" type="button" (click)="addTag()">Add Tag</button>
+            
+                </div>
+            
+                <button id="saveButton"type="button" (click)="save()">Save</button>
+
+                <button id="tryDeleteButton" type="button" (click)="tryDelete()">Delete Photo</button>
+                <span *ngIf="showDeleteConfirm">
+                    <span>Are you sure?:</span>
+                    <span><button id="yesDelete" (click)="deletePhoto()">Yes</button></span>
+                    <span><button id="noDelete" (click)="cancelDelete()">No</button></span>
+                </span> 
         </div>
 
+        <div *ngIf = "!canEdit">
+            <span *ngFor ="let tag of tempTagList">#{{tag.tagName}} </span>
+            <div>{{selectedPhoto.photoDescription}}</div>
         </div>
+
+
+        </div>
+        </div>
+        
 </div>

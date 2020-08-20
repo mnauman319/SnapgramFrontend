@@ -20,13 +20,11 @@ export class HomepageComponent implements OnInit {
   searchName:string;
   user:User = this.userService.loggedInUser;
   
-  storedPhotos:Photo[];     //storaged of searched user's photos
+ // storedPhotos:Photo[] = this.photoService.storedPhotos;     //storaged of searched user's photos
   displayedPhotos:Photo[];  //photo array sent to photoview component
   filterInput:string;       //string input for filtering storedPhotos
 
   ngOnInit(): void {
-    
-
     // //It will not allow people to go to home page if they are not logged in
     if(this.userService.loggedInUser === undefined){
       this.router.navigateByUrl("/login")
@@ -49,8 +47,9 @@ export class HomepageComponent implements OnInit {
   // }
 
   async getUserPhotos(userId:number){
-    this.storedPhotos = await this.photoService.getPhotosByUid(userId);
-    this.displayedPhotos = this.storedPhotos;
+    await this.photoService.getPhotosByUid(userId);
+    this.displayedPhotos = this.photoService.storedPhotos;
+    this.filterInput= "";
   }
 
   // Filters storedPhotos array using filterInput and then sets filteredPhotos as new displayedPhotos
@@ -58,8 +57,8 @@ export class HomepageComponent implements OnInit {
     if(this.filterInput !== ""){
       let filteredPhotos:Photo[]=[];
       
-      for(let photo of this.storedPhotos){
-        console.log(photo.photoName);
+      for(let photo of this.photoService.storedPhotos){
+        
         if(photo.photoName.includes(this.filterInput)){
           filteredPhotos.push(photo);
         }else{
@@ -73,7 +72,7 @@ export class HomepageComponent implements OnInit {
       }
       this.displayedPhotos = filteredPhotos;
      }else{
-      this.displayedPhotos = this.storedPhotos;
+      this.displayedPhotos = this.photoService.storedPhotos;
      }
   }
 
