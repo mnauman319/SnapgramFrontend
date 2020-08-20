@@ -1,10 +1,11 @@
 import { Title } from '@angular/platform-browser';
 import { Component, OnInit, Input } from '@angular/core'
 import { Photo } from '../../models/photo'
-
+import { Tag } from '../../models/tag'
 import { PhotoService } from 'src/app/services/photo.service';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { TagService } from 'src/app/services/tag.service';
 
 @Component({
   selector: 'app-photoview',
@@ -18,7 +19,18 @@ export class PhotoviewComponent implements OnInit {
   selectedPhoto:Photo;
   canEdit:boolean;
 
-  constructor(private pserv:PhotoService, private userv:UserService, private router:Router) { }
+  deleteTagList:Tag[]=[];
+  addTagList:Tag[]=[];
+  tempTagList:Tag[]=[];
+  tagNameInput:string;
+
+  photoTitleInput:string;
+  photoDescInput:string;
+
+  showDeleteConfirm:boolean =false;
+
+  constructor(private pserv:PhotoService, private userv:UserService, 
+    private router:Router, private tserv:TagService) { }
 
   ngOnInit(): void {
     this.canEdit = this.userv.loggedInUser.userId === this.pserv.searchedUserId;
@@ -28,16 +40,77 @@ export class PhotoviewComponent implements OnInit {
   selectPhoto(photo:Photo) {
     this.selectedPhoto = photo; 
     this.canEdit = this.userv.loggedInUser.userId === this.pserv.searchedUserId;
+    this.tempTagList = Object.assign([], photo.tags);
+    this.photoTitleInput = photo.photoName;
+    this.photoDescInput = photo.photoDescription;
   }
 
   closeModal(){
     if(this.selectedPhoto!=null){
       this.selectedPhoto = null;
+      this.tempTagList =[];
+      this.photoTitleInput=null;
+      this.photoDescInput=null;
+      this.showDeleteConfirm =false;
     }
   }
 
-  clickevent(event){
-    console.log(event);
+  //updates deleteTagList and addTagList
+  deleteTag(tag:Tag){
+    const index = this.tempTagList.indexOf(tag);
+    this.tempTagList.splice(index,1);
+
+    // Remove from addTagList
+    if(tag.tagId === 0){
+      this.addTagList.splice(this.addTagList.findIndex((x)=>{x.tagId===tag.tagId}),1);
+      console.log( this.addTagList);
+    }
+
+    // adds tag to deleteList only if tag exists in the Database
+    if(this.selectedPhoto.tags.find((x)=>{return x.tagId===tag.tagId})){
+      this.deleteTagList.push(tag);
+    }
   }
 
+  //add tag to addTagList; Does not allow duplicates.
+  addTag(){
+    if(this.tagNameInput!=="" && !this.tempTagList.find((x) => {return x.tagName===this.tagNameInput})){
+      this.addTagList.push(new Tag(0, this.tagNameInput));
+      this.tempTagList.push(new Tag(0, this.tagNameInput));
+    }
+    this.tagNameInput="";
+    console.log(this.addTagList);
+  }
+
+  async save(){
+    this.selectedPhoto.photoName = this.photoTitleInput;
+    this.selectedPhoto.photoDescription = this.photoDescInput;
+    this.pserv.editPhoto(this.selectedPhoto, this.userv.loggedInUser.userId);
+
+    for(let tag of this.deleteTagList){
+      this.tserv.deleteTag(tag.tagId);
+    }
+
+    for(let tag of this.addTagList){
+      this.tserv.createTag(tag, 0, this.selectedPhoto.photoId);
+    }
+
+    this.selectedPhoto.tags = Object.assign([], this.tempTagList);
+    this.closeModal();
+  }
+
+  tryDelete(){
+    this.showDeleteConfirm=true;
+  }
+
+  cancelDelete(){
+    this.showDeleteConfirm=false;
+  }
+
+  async deletePhoto(){
+    this.pserv.deletePhoto(this.selectedPhoto.photoId);
+    const photoIndex = this.photos.findIndex((x)=>{return x.photoId===this.selectedPhoto.photoId});
+    this.photos.splice(photoIndex,1);
+    this.closeModal();
+  }
 }

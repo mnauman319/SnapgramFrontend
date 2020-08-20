@@ -13,5 +13,7 @@ export class TagService {
     return tag;
   }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                       
+  async deleteTag(tId:number):Promise<boolean>{
+    return await this.http.delete<boolean>(`http://localhost:8080/users/0/photos/0/tags/${tId}`).toPromise();
+  }                                                                                                                                                                                                                                                                                                                                                                           
 }

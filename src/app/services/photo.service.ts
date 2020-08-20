@@ -37,8 +37,8 @@ export class PhotoService {
     return photo;
   }
 
-  async editPhoto(photo:Photo):Promise<Photo>{
-    const editedPhoto = await this.http.put<Photo>("http://localhost:8080/users/0/photos", photo).toPromise();
+  async editPhoto(photo:Photo, uId:number):Promise<Photo>{
+    const editedPhoto = await this.http.put<Photo>(`http://localhost:8080/users/${uId}/photos`, photo).toPromise();
     return editedPhoto;
   }
 

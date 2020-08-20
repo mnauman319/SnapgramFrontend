@@ -40,7 +40,7 @@ export class HomepageComponent implements OnInit {
   }
 
   async setCurrentUser(){
-    let user:User = await this.userService.testingUser();
+    let user:User = this.userService.loggedInUser;
     this.currentUser = user;
     this.getUserPhotos(this.userService.loggedInUser.userId); 
   }
