@@ -6,6 +6,7 @@ import { PhotoService } from 'src/app/services/photo.service';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { TagService } from 'src/app/services/tag.service';
+import {MatChipsModule} from '@angular/material/chips';
 
 @Component({
   selector: 'app-photoview',
@@ -22,7 +23,7 @@ export class PhotoviewComponent implements OnInit {
   deleteTagList:Tag[]=[];
   addTagList:Tag[]=[];
   tempTagList:Tag[]=[];
-  tagNameInput:string;
+  tagNameInput:string="";
 
   photoTitleInput:string;
   photoDescInput:string;
@@ -50,8 +51,8 @@ export class PhotoviewComponent implements OnInit {
       this.selectedPhoto = null;
       this.tempTagList =[];
       this.tagNameInput = "";
-      this.photoTitleInput=null;
-      this.photoDescInput=null;
+      this.photoTitleInput="";
+      this.photoDescInput="";
       this.showDeleteConfirm =false;
       this.addTagList=[];
       this.deleteTagList=[];
@@ -98,12 +99,14 @@ export class PhotoviewComponent implements OnInit {
     this.selectedPhoto.tags=null;
     this.pserv.editPhoto(this.selectedPhoto, this.userv.loggedInUser.userId);
 
-    this.refreshPhotos();
+    //this.refreshPhotos();
+    this.selectedPhoto.tags = this.tempTagList;
     this.closeModal();
   }
 
   tryDelete(){
-    this.showDeleteConfirm=true;
+    this.showDeleteConfirm=!this.showDeleteConfirm;
+
   }
 
   cancelDelete(){
@@ -120,5 +123,6 @@ export class PhotoviewComponent implements OnInit {
   async refreshPhotos(){
     await this.pserv.getPhotosByUid(this.userv.loggedInUser.userId);
     this.photos = this.pserv.storedPhotos;
+    console.log(this.photos);
   }
 }

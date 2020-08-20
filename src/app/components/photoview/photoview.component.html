@@ -5,14 +5,14 @@
 
 <mat-grid-list cols="12" rowHeight="550px">
     <mat-grid-tile *ngFor ="let photo of photos" class="card-tile" [colspan] = "4" [rowspan]="1">
-        <mat-card id="card">
+        <mat-card id="card" (click)="selectPhoto(photo)">
             <div id="card-content">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image" style="background-image: url({{photo.photoUrl}})"></div>
                     <mat-card-title id="card-title">{{photo.photoName}}</mat-card-title>
                     <mat-card-subtitle><span id="tagSpan" *ngFor ="let tag of photo.tags">#{{tag.tagName}} </span></mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image class="card-image" src="{{photo.photoUrl}}" alt="{{photo.photoName}}" (click)="selectPhoto(photo)">
+                <img mat-card-image class="card-image" src="{{photo.photoUrl}}" alt="{{photo.photoName}}">
                 <mat-card-content>
                     <p id="photo_description">
                     {{photo.photoDescription}}
@@ -46,31 +46,35 @@
 
         <div *ngIf = "canEdit">
             
-                <label for="photoName">Title: </label>
-                <input id="photoName" type="text" [(ngModel)]='photoTitleInput'>
-                
-                <div>
-                <label for="photoDescription">Description: </label>
-                <center><textarea id="photoDescription" [(ngModel)]='photoDescInput' rows="3" style = "width:95%" >
-                </textarea>
-                </center>
-                </div>
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput id="photoName" type="text" [(ngModel)]='photoTitleInput'>       
+            </mat-form-field>
 
-                <div><label for="createTags">Tags: </label></div>
-                <span class="tagList" *ngFor = "let tag of tempTagList">
+            <div>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea matInput id="photoDescription" [(ngModel)]='photoDescInput' >
+                </textarea>   
+            </mat-form-field>
+            </div>
+
+                <div>
+                    <label for="createTags">Tags: </label></div>
+                    <span class="tagList" *ngFor = "let tag of tempTagList">
                     {{tag.tagName}}<span class="deleteTagBtn" (click)="deleteTag(tag)">&#x274C; &nbsp;</span>
                 </span>
 
 
-                <div id=createTags>
+                <div id=changeTags>
                     <input id="addTag" [(ngModel)]='tagNameInput' name="addTag" type="text" >
                     <button id="addTagButton" type="button" (click)="addTag()">Add Tag</button>
-            
                 </div>
-            
-                <button id="saveButton"type="button" (click)="save()">Save</button>
+                
+                <button id="saveButton" mat-mini-fab type="button" (click)="save()"><mat-icon>save</mat-icon></button>
 
-                <button id="tryDeleteButton" type="button" (click)="tryDelete()">Delete Photo</button>
+                <button id="tryDeleteButton" mat-mini-fab type="button" (click)="tryDelete()"><mat-icon>delete</mat-icon></button>
+
                 <span *ngIf="showDeleteConfirm">
                     <span>Are you sure?:</span>
                     <span><button id="yesDelete" (click)="deletePhoto()">Yes</button></span>
