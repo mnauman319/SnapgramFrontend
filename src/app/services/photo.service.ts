@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Photo } from '../models/photo';
 import {HttpClient} from '@angular/common/http';
+import { User } from '../models/user';
+import { UserService } from './user.service';
 @Injectable({
   providedIn: 'root'
 })
 export class PhotoService {
 
-  constructor(private http:HttpClient) { }
+  searchedUserId:number = this.userv.loggedInUser.userId;
+  storedPhotos:Photo[];
+
+  constructor(private http:HttpClient, private userv:UserService) { }
 
   async createPhoto(photo:Photo, uId:number):Promise<Photo>{
     photo = await this.http.post<Photo>(`http://localhost:8080/users/${uId}/photos/`, photo).toPromise();
@@ -22,7 +27,9 @@ export class PhotoService {
   async getPhotosByUid(uId:number){
     const photos:Array<Photo> = await this.http.get<Array<Photo>>(`http://localhost:8080/users/${uId}/photos`).toPromise();
     photos.sort(function(a,b){return b.photoId-a.photoId});
-    return photos;
+    this.searchedUserId= uId;
+    this.storedPhotos = photos;
+    //return photos;
   }
 
   async getPhotoById(pId:number):Promise<Photo>{
@@ -30,8 +37,8 @@ export class PhotoService {
     return photo;
   }
 
-  async editPhoto(photo:Photo):Promise<Photo>{
-    const editedPhoto = await this.http.put<Photo>("http://localhost:8080/users/0/photos", photo).toPromise();
+  async editPhoto(photo:Photo, uId:number):Promise<Photo>{
+    const editedPhoto = await this.http.put<Photo>(`http://localhost:8080/users/${uId}/photos`, photo).toPromise();
     return editedPhoto;
   }
 
