@@ -62,15 +62,30 @@
                 </span>
 
 
-                <div id=createTags>
+                <div id=changeTags>
                     <input id="addTag" [(ngModel)]='tagNameInput' name="addTag" type="text" >
                     <button id="addTagButton" type="button" (click)="addTag()">Add Tag</button>
-            
+
+                    
+                        <mat-chip-list #chipList aria-label="Fruit selection">
+                          <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                                   [removable]="removable" (removed)="remove(fruit)">
+                            {{fruit.name}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                          </mat-chip>
+                          <input placeholder="New fruit..."
+                                 [matChipInputFor]="chipList"
+                                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                 [matChipInputAddOnBlur]="addOnBlur"
+                                 (matChipInputTokenEnd)="add($event)">
+                        </mat-chip-list>
+                      
                 </div>
             
                 <button id="saveButton"type="button" (click)="save()">Save</button>
 
                 <button id="tryDeleteButton" type="button" (click)="tryDelete()">Delete Photo</button>
+
                 <span *ngIf="showDeleteConfirm">
                     <span>Are you sure?:</span>
                     <span><button id="yesDelete" (click)="deletePhoto()">Yes</button></span>

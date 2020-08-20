@@ -22,7 +22,7 @@ export class PhotoviewComponent implements OnInit {
   deleteTagList:Tag[]=[];
   addTagList:Tag[]=[];
   tempTagList:Tag[]=[];
-  tagNameInput:string;
+  tagNameInput:string="";
 
   photoTitleInput:string;
   photoDescInput:string;
