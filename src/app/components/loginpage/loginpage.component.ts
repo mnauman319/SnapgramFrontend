@@ -1,37 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { User } from '../../models/user'
 import { Title } from '@angular/platform-browser';
 
 
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
+
 
 @Component({
   selector: 'app-loginpage',
   templateUrl: './loginpage.component.html',
-  styleUrls: ['./loginpage.component.css']
+  styleUrls: ['./loginpage.component.css','./loginpage.component.scss']
 })
 export class LoginpageComponent implements OnInit {
 
-
+  
   username:string;
   password:string;
   hidePassword:boolean = true;
+  slideToggle:boolean = false;
 
   constructor(private router:Router, private userService:UserService,private titleService:Title) { }
 
+  
+
   ngOnInit(): void {
     this.setTitle();
+    console.log(this.slideToggle);
   }
 
-  openRegistrationView(){
-    this.router.navigateByUrl("/register");
+  toggleBox(status:boolean){
+    this.slideToggle=status;
+  }
+  openRegistrationView() {
+    this.slideToggle=true;
   }
 
   async loginUser(){

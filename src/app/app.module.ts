@@ -15,6 +15,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatCardModule} from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 import { AppComponent } from './app.component';
@@ -56,6 +57,7 @@ import { PhotoService } from './services/photo.service';
     MatToolbarModule,
     MatBadgeModule,
     MatCardModule,
+    MatCheckboxModule,
     MatExpansionModule
   ],
   providers: [UserService,TagService,PhotoService,Title],

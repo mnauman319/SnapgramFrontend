@@ -25,6 +25,7 @@ export class HomepageComponent implements OnInit {
   filterInput:string;       //string input for filtering storedPhotos
 
   ngOnInit(): void {
+
     // //It will not allow people to go to home page if they are not logged in
     // if(this.userService.loggedInUser === undefined){
     //   this.router.navigateByUrl("/login")
