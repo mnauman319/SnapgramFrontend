@@ -49,9 +49,12 @@ export class PhotoviewComponent implements OnInit {
     if(this.selectedPhoto!=null){
       this.selectedPhoto = null;
       this.tempTagList =[];
+      this.tagNameInput = "";
       this.photoTitleInput=null;
       this.photoDescInput=null;
       this.showDeleteConfirm =false;
+      this.addTagList=[];
+      this.deleteTagList=[];
     }
   }
 
@@ -63,10 +66,10 @@ export class PhotoviewComponent implements OnInit {
     // Remove from addTagList
     if(tag.tagId === 0){
       this.addTagList.splice(this.addTagList.findIndex((x)=>{x.tagId===tag.tagId}),1);
-      console.log( this.addTagList);
     }
 
     // adds tag to deleteList only if tag exists in the Database
+    //if(this.selectedPhoto.tags.find((x)=>{return x.tagId===tag.tagId})){
     if(this.selectedPhoto.tags.find((x)=>{return x.tagId===tag.tagId})){
       this.deleteTagList.push(tag);
     }
@@ -79,23 +82,23 @@ export class PhotoviewComponent implements OnInit {
       this.tempTagList.push(new Tag(0, this.tagNameInput));
     }
     this.tagNameInput="";
-    console.log(this.addTagList);
   }
 
   async save(){
-    this.selectedPhoto.photoName = this.photoTitleInput;
-    this.selectedPhoto.photoDescription = this.photoDescInput;
-    this.pserv.editPhoto(this.selectedPhoto, this.userv.loggedInUser.userId);
+    for(let tag of this.addTagList){
+      this.tserv.createTag(tag, 0, this.selectedPhoto.photoId);
+    }
 
     for(let tag of this.deleteTagList){
       this.tserv.deleteTag(tag.tagId);
     }
 
-    for(let tag of this.addTagList){
-      this.tserv.createTag(tag, 0, this.selectedPhoto.photoId);
-    }
+    this.selectedPhoto.photoName = this.photoTitleInput;
+    this.selectedPhoto.photoDescription = this.photoDescInput;
+    this.selectedPhoto.tags=null;
+    this.pserv.editPhoto(this.selectedPhoto, this.userv.loggedInUser.userId);
 
-    this.selectedPhoto.tags = Object.assign([], this.tempTagList);
+    this.refreshPhotos();
     this.closeModal();
   }
 
@@ -112,5 +115,10 @@ export class PhotoviewComponent implements OnInit {
     const photoIndex = this.photos.findIndex((x)=>{return x.photoId===this.selectedPhoto.photoId});
     this.photos.splice(photoIndex,1);
     this.closeModal();
+  }
+
+  async refreshPhotos(){
+    await this.pserv.getPhotosByUid(this.userv.loggedInUser.userId);
+    this.photos = this.pserv.storedPhotos;
   }
 }
