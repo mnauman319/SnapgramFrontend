@@ -1,110 +1,110 @@
-$countDefault: 1 !default;
-$durationDefault: 1s !default;
-$delayDefault: 0s !default;
-$functionDefault: ease !default;
-$fillDefault: both;
-$visibilityDefault: hidden !default;
+// $countDefault: 1 !default;
+// $durationDefault: 1s !default;
+// $delayDefault: 0s !default;
+// $functionDefault: ease !default;
+// $fillDefault: both;
+// $visibilityDefault: hidden !default;
 
-@mixin count($count: 1) {
-  -webkit-animation-iteration-count: $count;
-     -moz-animation-iteration-count: $count;
-      -ms-animation-iteration-count: $count;
-       -o-animation-iteration-count: $count;
-          animation-iteration-count: $count;
-}
+// @mixin count($count: 1) {
+//   -webkit-animation-iteration-count: $count;
+//      -moz-animation-iteration-count: $count;
+//       -ms-animation-iteration-count: $count;
+//        -o-animation-iteration-count: $count;
+//           animation-iteration-count: $count;
+// }
 
-@mixin duration($duration: 1s) {
-  -webkit-animation-duration: $duration;
-     -moz-animation-duration: $duration;
-      -ms-animation-duration: $duration;
-       -o-animation-duration: $duration;
-          animation-duration: $duration;
-}
+// @mixin duration($duration: 1s) {
+//   -webkit-animation-duration: $duration;
+//      -moz-animation-duration: $duration;
+//       -ms-animation-duration: $duration;
+//        -o-animation-duration: $duration;
+//           animation-duration: $duration;
+// }
 
-@mixin delay($delay: .2s) {
-  -webkit-animation-delay: $delay;
-     -moz-animation-delay: $delay;
-      -ms-animation-delay: $delay;
-       -o-animation-delay: $delay;
-          animation-delay: $delay;
-}
+// @mixin delay($delay: .2s) {
+//   -webkit-animation-delay: $delay;
+//      -moz-animation-delay: $delay;
+//       -ms-animation-delay: $delay;
+//        -o-animation-delay: $delay;
+//           animation-delay: $delay;
+// }
 
-@mixin function($function: ease) {
-  -webkit-animation-timing-function: $function;
-     -moz-animation-timing-function: $function;
-      -ms-animation-timing-function: $function;
-       -o-animation-timing-function: $function;
-          animation-timing-function: $function;
-}
+// @mixin function($function: ease) {
+//   -webkit-animation-timing-function: $function;
+//      -moz-animation-timing-function: $function;
+//       -ms-animation-timing-function: $function;
+//        -o-animation-timing-function: $function;
+//           animation-timing-function: $function;
+// }
 
-@mixin fill-mode($fill: both) {
-  -webkit-animation-fill-mode: $fill;
-     -moz-animation-fill-mode: $fill;
-      -ms-animation-fill-mode: $fill;
-       -o-animation-fill-mode: $fill;
-          animation-fill-mode: $fill;
-}
+// @mixin fill-mode($fill: both) {
+//   -webkit-animation-fill-mode: $fill;
+//      -moz-animation-fill-mode: $fill;
+//       -ms-animation-fill-mode: $fill;
+//        -o-animation-fill-mode: $fill;
+//           animation-fill-mode: $fill;
+// }
 
-@mixin visibility($visibility: hidden) {
-  -webkit-backface-visibility: $visibility;
-     -moz-backface-visibility: $visibility;
-      -ms-backface-visibility: $visibility;
-       -o-backface-visibility: $visibility;
-          backface-visibility: $visibility;
-}
+// @mixin visibility($visibility: hidden) {
+//   -webkit-backface-visibility: $visibility;
+//      -moz-backface-visibility: $visibility;
+//       -ms-backface-visibility: $visibility;
+//        -o-backface-visibility: $visibility;
+//           backface-visibility: $visibility;
+// }
 
-@mixin transform($property) {
-  -webkit-transform: $property;
-     -moz-transform: $property;
-      -ms-transform: $property;
-       -o-transform: $property;
-          transform: $property;
-}
+// @mixin transform($property) {
+//   -webkit-transform: $property;
+//      -moz-transform: $property;
+//       -ms-transform: $property;
+//        -o-transform: $property;
+//           transform: $property;
+// }
 
-@mixin transform-origin($transform-origin: center center) {
-  -webkit-transform-origin: $transform-origin;
-     -moz-transform-origin: $transform-origin;
-      -ms-transform-origin: $transform-origin;
-       -o-transform-origin: $transform-origin;
-          transform-origin: $transform-origin;
-}
+// @mixin transform-origin($transform-origin: center center) {
+//   -webkit-transform-origin: $transform-origin;
+//      -moz-transform-origin: $transform-origin;
+//       -ms-transform-origin: $transform-origin;
+//        -o-transform-origin: $transform-origin;
+//           transform-origin: $transform-origin;
+// }
 
-@mixin transform-style($transform-style: flat) {
-  -webkit-transform-style: $transform-style;
-     -moz-transform-style: $transform-style;
-       -o-transform-style: $transform-style;
-          transform-style: $transform-style;
-}
+// @mixin transform-style($transform-style: flat) {
+//   -webkit-transform-style: $transform-style;
+//      -moz-transform-style: $transform-style;
+//        -o-transform-style: $transform-style;
+//           transform-style: $transform-style;
+// }
 
-@mixin animation-name($animation-name) {
-  -webkit-animation-name: $animation-name;
-     -moz-animation-name: $animation-name;
-      -ms-animation-name: $animation-name;
-       -o-animation-name: $animation-name;
-          animation-name: $animation-name;
-}
+// @mixin animation-name($animation-name) {
+//   -webkit-animation-name: $animation-name;
+//      -moz-animation-name: $animation-name;
+//       -ms-animation-name: $animation-name;
+//        -o-animation-name: $animation-name;
+//           animation-name: $animation-name;
+// }
 
-@mixin keyframes($animation-name) {
-  @-webkit-keyframes #{$animation-name} {
-    @content;
-  }
+// @mixin keyframes($animation-name) {
+//   @-webkit-keyframes #{$animation-name} {
+//     @content;
+//   }
 
-  @-moz-keyframes #{$animation-name} {
-    @content;
-  }
+//   @-moz-keyframes #{$animation-name} {
+//     @content;
+//   }
 
-  @-ms-keyframes #{$animation-name} {
-    @content;
-  }
+//   @-ms-keyframes #{$animation-name} {
+//     @content;
+//   }
 
-  @-o-keyframes #{$animation-name} {
-    @content;
-  }
+//   @-o-keyframes #{$animation-name} {
+//     @content;
+//   }
 
-  @keyframes #{$animation-name} {
-    @content;
-  }
-}
+//   @keyframes #{$animation-name} {
+//     @content;
+//   }
+// }
 
 
 // .half1-diag1{
@@ -165,26 +165,28 @@ $visibilityDefault: hidden !default;
 
 
 .login-field {
-  width: 50%;
+  max-width: 50%;
   margin-top:2em;
   margin-left:25%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  border-radius:5px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   .prepend-icon{
     padding:20px;
-    border: 1px solid rgb(90, 90, 90);
+    // border: 1px solid rgb(90, 90, 90);
     border-radius: 5px 0 0 5px;
   }
   input{
-    text-align: center;
+    // text-align: center;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size:large;
     height:40px;
-    width:75%;
+    width:100%;
     padding:12px;
     border-radius: 0 5px 5px 0;
-    border:1px solid rgb(90, 90, 90);
-    border-left-width: 0;
+    border:0;
+    border-left:1px solid rgba(26, 26, 26, 0.2);
     padding-left:14px;
     ::placeholder{
       font-size: x-large;
@@ -198,9 +200,112 @@ $visibilityDefault: hidden !default;
 }
 
 .login-btn{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin-top:2em;
+  margin-left:25%;
+  mat-checkbox{
+    font-size: large;
+  }
+  span{
+    flex: 1 1 auto;
+  }
+  button{
+    width: 25%;
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+.divider{
+  margin-top:40px;
+  margin-bottom:40px;
+  margin-left:25%;
+  width:50%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  div{
+    width:40%;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.2);
+  }
+  span{
+    text-align: center;
+    flex: 1 1 auto;
+  }
+}
+
+
+
+.social-field{
+  max-width: 50%;
+  height:64px;
+  margin-top:2em;
+  margin-left:25%;
+  display: flex;
+  align-items: center;
+  border-radius:5px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  a{
+    height:24px;
+    width:24px;
+    padding:20px;
+    border-radius: 5px 0 0 5px;
+  }
+  button{
+    text-align: center;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size:large;
+    color:white;
+    height:100%;
+    width:100%;
+    padding:12px;
+    border-radius: 0 5px 5px 0;
+    border:0;
+    border-left:1px solid rgba(26, 26, 26, 0.2);
+    padding-left:14px;
+  }
+  &.fb{
+    a{
+      background-color:#243B68
+    }
+    button{
+      background-color:#3A5998;
+    }
+  }
+  &.tw{
+    a{
+      background-color:#0A95CB
+    }
+    button{
+      background-color:#05ABED;
+    }
+  }
+  &.go{
+    a{
+      background-color:#ffffff;
+    }
+    button{
+      color:black;
+      background-color:#ffffff;
+    }
+  }
   
 }
 
+.register-btn{
+  max-width: 50%;
+  margin-top:2em;
+  margin-left:25%;
+  text-align: center;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size:large;
+  p{
+    margin-top:1em;
+  }
+  
+}
 
 // animations
 
@@ -212,30 +317,17 @@ $visibilityDefault: hidden !default;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-    .search {
-      position: absolute;
-      margin: auto;
-      top: 0;
-      right: -260px;
-      bottom: 0;
-      left: 0;
-      width: 40px;
-      height: 40px;
-      background: crimson;
-      border-radius: 50%;
-      transition: all 1s;
-      z-index: 4;
-    }
-    .fake-btn {
+    input[type="checkbox"] {
       font-family: 'Inconsolata', monospace;
       position: absolute;
       margin: auto;
-      top: 0;
-      right: -260px;
+      top: 630px;
+      right: 450px;
       bottom: 0;
+      width: 10em;
+      height: 10em;
+      transform: translateY(0.5em);
       left: 0;
-      width: 25px;
-      height: 25px;
       outline: none;
       border: none;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -244,37 +336,30 @@ $visibilityDefault: hidden !default;
       text-shadow: 0 0 10px crimson;
       padding: 0 80px 0 20px;
       border-radius: 30px;
-      opacity: 0;
+      opacity: 0.1;
       z-index: 5;
       font-weight: bolder;
       letter-spacing: 0.1em;
       &:hover {
         cursor: pointer;
       }
-      &:focus {
-        width: 300px;
-        right:0;
-        opacity: 0;
-        background: crimson;
-        cursor: text;
-      }
-      &:focus ~ .half1-diag1{
+      &:checked ~ .half1-diag1{
         width:80%;
         right:0%;
       }
-      &:focus ~ .half1-diag2{
+      &:checked ~ .half1-diag2{
         right:80%;
       }
-      &:focus ~ .half1-diag3{
+      &:checked ~ .half1-diag3{
         right:84%;
       }
-      &:focus ~ .half1-diag4{
+      &:checked ~ .half1-diag4{
         right:88%;
       }
-      &:focus ~ .half1-diag5{
+      &:checked ~ .half1-diag5{
         right:92%;
       }
-      &:focus ~ .half1-diag6{
+      &:checked ~ .half1-diag6{
         width:4%;
         right:96%;
         .login-form-container{
@@ -282,31 +367,6 @@ $visibilityDefault: hidden !default;
             left:-300px;
           }
         }
-      }
-      &:focus ~ .search {
-        right: -275px;
-        background: #151515;
-        z-index: 6;
-        &::before {
-          top: 0;
-          left: 0;
-          width: 25px;
-        }
-        &::after {
-          top: 0;
-          left: 0;
-          width: 25px;
-          height: 2px;
-          border: none;
-          background: white;
-          border-radius: 0%;
-          transform: rotate(-45deg);
-        }
-      }
-      &::placeholder {
-        color: white;
-        opacity: 0.5;
-        font-weight: bolder;
       }
     }
   }
