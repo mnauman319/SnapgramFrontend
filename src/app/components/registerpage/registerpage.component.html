@@ -9,16 +9,17 @@
             <input placeholder="Username or Email" [(ngModel)]="new_username" id="new_username_input">
       </div>
       <div class="password-field">
-            <input [type]="hidePassword ? 'password' : 'text'" placeholder="Password"
-                [(ngModel)]="new_password" id="new_password_input">
-            
-            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
-                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
-                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-       
+        <div class="main-pass">
+          <input [type]="hidePassword ? 'password' : 'text'" placeholder="Password" [(ngModel)]="new_password" id="new_password_input">
+        </div>
+        <div class="confirm-pass">
+          <input [type]="hidePassword ? 'password' : 'text'" placeholder="Confirm Password">
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </div>
       </div>
-      <div class="sign-in-btn">
+      <div class="create-btn">
         <button mat-raised-button id="create_user_btn" (click)="registerNewUser()">Create Account</button>
       </div>
       <div class="divider">

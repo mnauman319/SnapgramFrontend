@@ -70,7 +70,15 @@
 
 <section>
     <mat-grid-list cols="12" rowHeight="10:1" [gutterSize]="'10px'">
-        <mat-grid-tile [colspan]="1" [rowspan]="75"> </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="75">
+           <div class="colored-lines-container">
+            <div class="half1-diag2"></div>
+            <div class="half1-diag3"></div>
+            <div class="half1-diag4"></div>
+            <div class="half1-diag5"></div>
+            <div class="half1-diag6"></div>
+           </div> 
+        </mat-grid-tile>
         <mat-grid-tile id="photoview-container" [colspan]="10" [rowspan]="75">
             <div class="photoview-content">
                 <app-photoview [photos]="displayedPhotos"></app-photoview>

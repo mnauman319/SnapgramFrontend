@@ -13,6 +13,7 @@ import { Title } from '@angular/platform-browser';
 export class RegisterpageComponent implements OnInit {
 
   @Output() slideToggleBack = new EventEmitter<boolean>();
+  @Output() changeTitle = new EventEmitter<string>();
   new_username:string;
   new_password:string;
   new_fname:string;
@@ -22,7 +23,7 @@ export class RegisterpageComponent implements OnInit {
   constructor(private router:Router,private userService:UserService,private titleService:Title) { }
 
   ngOnInit(): void {
-    this.setTitle();
+    
   }
   async registerNewUser(){
 
@@ -42,10 +43,11 @@ export class RegisterpageComponent implements OnInit {
     }
   }
   setTitle(){
-    this.titleService.setTitle("SnapGram - Register User");
+    
   }
 
   openSignInView() :void {
     this.slideToggleBack.next(false);
+    this.changeTitle.next("SnapGram - Login");
   }
 }

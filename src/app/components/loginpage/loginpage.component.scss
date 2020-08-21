@@ -111,6 +111,10 @@ $visibilityDefault: hidden !default;
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: none;
+}
+
 .background{
   display:flex;
   justify-content: center;

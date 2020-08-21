@@ -25,7 +25,7 @@ export class LoginpageComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.setTitle();
+    this.setTitle("SnapGram - Login");
     console.log(this.slideToggle);
   }
 
@@ -33,6 +33,7 @@ export class LoginpageComponent implements OnInit {
     this.slideToggle=status;
   }
   openRegistrationView() {
+    this.setTitle("SnapGram - Register User");
     this.slideToggle=true;
   }
 
@@ -47,7 +48,7 @@ export class LoginpageComponent implements OnInit {
       alert("Incorrect Username or Password try again!");
     }
   }
-  setTitle(){
-    this.titleService.setTitle("SnapGram - Login");
+  setTitle(title:string):void{
+    this.titleService.setTitle(title);
   }
 }
