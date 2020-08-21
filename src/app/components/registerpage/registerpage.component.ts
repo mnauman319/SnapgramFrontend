@@ -43,11 +43,11 @@ export class RegisterpageComponent implements OnInit {
     }
   }
   setTitle(){
-    
   }
 
   openSignInView() :void {
     this.slideToggleBack.next(false);
     this.changeTitle.next("SnapGram - Login");
+
   }
 }

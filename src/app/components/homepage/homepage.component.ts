@@ -27,24 +27,25 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
 
     // //It will not allow people to go to home page if they are not logged in
-    // if(this.userService.loggedInUser === undefined){
-    //   this.router.navigateByUrl("/login")
-    // }
-    // else{
-    //   this.currentUser = this.userService.loggedInUser;
-    // }
-      this.setCurrentUser();
+    if(this.userService.loggedInUser === undefined){
+      this.router.navigateByUrl("/login")
+    }
+    else{
+      this.currentUser = this.userService.loggedInUser;
+      this.getUserPhotos(this.currentUser.userId);
+    }
+    //  this.setCurrentUser();
+
       this.setTitle();
   }
   setTitle(){
     this.titleService.setTitle("SnapGram");
   }
 
-  async setCurrentUser(){
-    let user:User = this.userService.loggedInUser;
-    this.currentUser = user;
-    this.getUserPhotos(this.userService.loggedInUser.userId); 
-  }
+  // async setCurrentUser(){
+  //   let user:User = await this.userService.testingUser();
+  //   this.currentUser = user;
+  // }
 
   async getUserPhotos(userId:number){
     await this.photoService.getPhotosByUid(userId);
@@ -62,13 +63,12 @@ export class HomepageComponent implements OnInit {
         if(photo.photoName.includes(this.filterInput)){
           filteredPhotos.push(photo);
         }else{
-
-          for(let tag of photo.tags){
-            if(tag.tagName.includes(this.filterInput)){
-              filteredPhotos.push(photo);
-              break;
-            }
+        for(let tag of photo.tags){
+          if(tag.tagName.includes(this.filterInput)){
+            filteredPhotos.push(photo);
+            break;
           }
+        }
         }
       }
       this.displayedPhotos = filteredPhotos;
@@ -91,6 +91,11 @@ export class HomepageComponent implements OnInit {
    if(this.user !== null){
     this.getUserPhotos(this.user.userId);
    }
+   if(this.searchName ===""){
+     this.user = this.currentUser;
+     this.getUserPhotos(this.user.userId);
+   }
+   
 
   }
 }
