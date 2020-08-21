@@ -157,3 +157,9 @@
   clip: rect(0, 200px, 1000px,0);
   transition: all 1s;
 } */
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,91 +1,158 @@
 <div id="accordianHeader">
-<mat-accordion>
-    <mat-expansion-panel  class="expansion-bar">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="expansion-bar-header">
-                <span>
-                    <button mat-button ><mat-icon>account_circle</mat-icon> <mat-label id="homepage-username-label"> {{currentUser.username}}</mat-label></button>
-                </span>
-                <span class="expansion-bar-spacer"></span>
-                <button mat-button><mat-icon matBadge="11" matBadgeColor="warn">notifications</mat-icon></button>
-                <button mat-button><mat-icon matBadge="3" matBadgeColor="warn">mail_outline</mat-icon></button>
-            </mat-panel-title>
-        </mat-expansion-panel-header>
+    <mat-accordion>
+        <mat-expansion-panel class="expansion-bar">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="expansion-bar-header">
+                    <span>
+                        <button mat-button>
+                            <mat-icon>account_circle</mat-icon>
+                            <mat-label id="homepage-username-label"> {{currentUser.username}}</mat-label>
+                        </button>
+                    </span>
+                    <span class="expansion-bar-spacer"></span>
+                    <button mat-button>
+                        <mat-icon matBadge="11" matBadgeColor="warn">notifications</mat-icon>
+                    </button>
+                    <button mat-button>
+                        <mat-icon matBadge="3" matBadgeColor="warn">mail_outline</mat-icon>
+                    </button>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
             <p>
-                <button mat-button><mat-label>Account Settings </mat-label><mat-icon>settings</mat-icon></button>
+                <button mat-button>
+                    <mat-label>Account Settings </mat-label>
+                    <mat-icon>settings</mat-icon>
+                </button>
             </p>
             <p>
-                <button mat-button><mat-label>Privacy </mat-label><mat-icon>security</mat-icon></button>
+                <button mat-button>
+                    <mat-label>Privacy </mat-label>
+                    <mat-icon>security</mat-icon>
+                </button>
             </p>
             <p>
-                <button mat-button (click)="signOut()" id="logout_btn"><mat-label>Sign Out </mat-label><mat-icon>keyboard_return</mat-icon></button>
+                <button mat-button (click)="signOut()" id="logout_btn">
+                    <mat-label>Sign Out </mat-label>
+                    <mat-icon>keyboard_return</mat-icon>
+                </button>
             </p>
-    </mat-expansion-panel> 
-</mat-accordion>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+<div class="top-banner-container">
+    <section>
+        <mat-grid-list cols="12" rowHeight="10:1" [gutterSize]="'10px'">
+            <mat-grid-tile [colspan]="8" [rowspan]="10"> </mat-grid-tile>
+            <mat-grid-tile [colspan]="3" [rowspan]="10">
+                <div class="container">
+                    <input id="user-lookup" type="text" placeholder="Search..." (keydown.enter)="search()"
+                        [(ngModel)]="searchName">
+                    <div class="search"></div>
+                    <div class="label"></div>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="10"></mat-grid-tile>
+        </mat-grid-list>
+    </section>
+
+
+    <section>
+        <mat-grid-list cols="12" rowHeight="10:1" [gutterSize]="'10px'">
+            <mat-grid-tile [colspan]="1" [rowspan]="20"></mat-grid-tile>
+            <mat-grid-tile [colspan]="10" [rowspan]="20">
+                <div id="banner-container">
+                    <img src="../../../assets/SnapgramLogo.png">
+                    <h1>Welcome to {{user.username}} Snapgram page!</h1>
+                </div>
+
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="20"></mat-grid-tile>
+        </mat-grid-list>
+    </section>
 </div>
 <section>
-    <mat-grid-list cols="12" rowHeight="10:1" [gutterSize]="'10px'">
-        <mat-grid-tile [colspan]="8" [rowspan]="10"> </mat-grid-tile>
-        <mat-grid-tile [colspan]="3" [rowspan]="10">
-            <div class="container">
-                <input id="user-lookup" type="text" placeholder="Search..." (keydown.enter)="search()" [(ngModel)]="searchName">
-                <div class="search"></div>
-                <div class="label"></div>
-              </div>
+    <mat-grid-list cols="24" rowHeight="10:1" [gutterSize]="'10px'">
+        <mat-grid-tile [colspan]="2" [rowspan]="12">
+            <div class="colored-lines-container">
+                <div class="half1-diag2"></div>
+                <div class="half1-diag3"></div>
+                <div class="half1-diag4"></div>
+                <div class="half1-diag5"></div>
+                <div class="half1-diag6"></div>
+            </div>
+            <!-- <div class="search-edit-photo-container"> -->
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="10"> </mat-grid-tile>
-    </mat-grid-list>
-</section>
-
-<section>
-    <mat-grid-list cols="12" rowHeight="10:1" [gutterSize]="'10px'">
-        <mat-grid-tile [colspan]="12" [rowspan]="5"></mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="20"> </mat-grid-tile>
-        <mat-grid-tile [colspan]="10" [rowspan]="20">
-            <h1>Welcome to {{user.username}} Snapgram page!</h1>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="20"> </mat-grid-tile>
-        <mat-grid-tile [colspan]="12" [rowspan]="1"> </mat-grid-tile>
-    </mat-grid-list>
-</section>
-
-<section>
-    <mat-grid-list cols="24" rowHeight="10:1" [gutterSize]="'10px'" >
-        <mat-grid-tile [colspan]="2" [rowspan]="12"> </mat-grid-tile>
-        <mat-grid-tile [colspan]="10" [rowspan]="12"> 
+        <mat-grid-tile [colspan]="10" [rowspan]="12">
             <mat-form-field class='search-bar'>
-                    <mat-label>Filter</mat-label>
-                    <input matInput id="search_photo" placeholder="Ex. Nature" value="" (keyup)="filter()" [(ngModel)]="filterInput">
+                <mat-label>Filter</mat-label>
+                <input matInput id="search_photo" placeholder="Ex. Nature" value="" (keyup)="filter()"
+                    [(ngModel)]="filterInput">
             </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="6" [rowspan]="12"> </mat-grid-tile>
-        <mat-grid-tile class="add-photo" [colspan]="4" [rowspan]="12" *ngIf="user.userId === currentUser.userId">
-            <mat-label>New Photo </mat-label>
-            <button id ="add-photo-button" mat-mini-fab color="accent" (click)="openUploadModal()"><mat-icon>add_a_photo</mat-icon></button>
+        <mat-grid-tile class="add-photo" [colspan]="4" [rowspan]="12">
+            <div *ngIf="user.userId === currentUser.userId" class="add-photo-container">
+                <mat-label>New Photo </mat-label>
+                <button id ="add-photo-button" mat-mini-fab color="accent" (click)="openUploadModal()"><mat-icon>add_a_photo</mat-icon></button>
+            </div>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="2" [rowspan]="12"> </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2" [rowspan]="12">
+            <div class="colored-lines-container">
+                <div class="half1-diag2"></div>
+                <div class="half1-diag3"></div>
+                <div class="half1-diag4"></div>
+                <div class="half1-diag5"></div>
+                <div class="half1-diag6"></div>
+            </div>
+        </mat-grid-tile>
     </mat-grid-list>
 </section>
-
 <section>
-    <mat-grid-list cols="12" rowHeight="10:1" [gutterSize]="'10px'">
+    <mat-grid-list cols="12" rowHeight="10:1">
         <mat-grid-tile [colspan]="1" [rowspan]="75">
-           <div class="colored-lines-container">
-            <div class="half1-diag2"></div>
-            <div class="half1-diag3"></div>
-            <div class="half1-diag4"></div>
-            <div class="half1-diag5"></div>
-            <div class="half1-diag6"></div>
-           </div> 
+            <div class="colored-lines-container">
+                <div class="half1-diag2"></div>
+                <div class="half1-diag3"></div>
+                <div class="half1-diag4"></div>
+                <div class="half1-diag5"></div>
+                <div class="half1-diag6"></div>
+            </div>
         </mat-grid-tile>
         <mat-grid-tile id="photoview-container" [colspan]="10" [rowspan]="75">
             <div class="photoview-content">
                 <app-photoview [photos]="displayedPhotos"></app-photoview>
             </div>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="75"> </mat-grid-tile>
-    
-        <mat-grid-tile [colspan]="12" [rowspan]="10" ></mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="75">
+            <div class="colored-lines-container">
+                <div class="half1-diag2"></div>
+                <div class="half1-diag3"></div>
+                <div class="half1-diag4"></div>
+                <div class="half1-diag5"></div>
+                <div class="half1-diag6"></div>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="12" [rowspan]="10">
+            <div class="footer-container">
+                <div></div>
+                <div class="footer-logo-container">
+                    <h2>Snapgram</h2>
+                    <h4>Copyright Snapgram 2020</h4>
+                </div>
+                <div class="address-container">
+                    <h3>16014 Willow Rd.</h3>
+                    <h3>Menlo Park, CA</h3>
+                    <h3>93025</h3>
+                </div>
+                <div class="contact-info-container">
+                    <h3>(650) 308-7300</h3>
+                    <h3>Support@Snapgram.com</h3>
+                </div>
+                <div></div>
+            </div>
+        </mat-grid-tile>
     </mat-grid-list>
 
 
@@ -94,7 +161,7 @@
         <div class="modal-header">
             <span (click)="closeUploadModal()" class="close">&times;</span>
         </div>
-        <app-photoupload></app-photoupload>
+        <app-photoupload (closeModal)="closeUploadModal($event)" (changeTitle)="setTitle($event)"></app-photoupload>
     </div>   
 </div>
 

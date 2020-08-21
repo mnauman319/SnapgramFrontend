@@ -5,13 +5,38 @@
     left: 0;
     z-index: 1030;
 }
-
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #61605f;
+    width: 100%;
+    height: 100%;
+}
+.footer-logo-contriainer h2{
+    font-style: American Typewriter, serif;
+}
+.footer-logo-contriainer h4{
+    color: gray;
+}
+.contact-info-container h3{
+    text-decoration: underline;
+}
 .photoview-content{ 
     height:99%;
     width:99%;
     overflow:auto;
 }
-
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 25px;
+}
+.banner-container{
+    width: 100%;
+    display: flex;
+}
 md-grid-tile{
     height: calc(100vh - 24px);
     border:  1px solid black;
@@ -49,5 +74,10 @@ md-grid-tile{
     flex: 1 1 auto;
     
 }
-
-
+.add-photo-container{
+    width: 100%;
+    height: 100%;
+}
+.top-banner-container {
+    background-color: #dbd6cf;
+}

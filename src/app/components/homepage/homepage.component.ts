@@ -42,10 +42,10 @@ export class HomepageComponent implements OnInit {
     //  this.setCurrentUser();
 
 
-      this.setTitle();
+      this.setTitle("SnapGram");
   }
-  setTitle(){
-    this.titleService.setTitle("SnapGram");
+  setTitle(title:string){
+    this.titleService.setTitle(title);
   }
 
   // async setCurrentUser(){
@@ -89,6 +89,8 @@ export class HomepageComponent implements OnInit {
 
   closeUploadModal(){
     this.uploadModal = false;
+    this.getUserPhotos(this.currentUser.userId);
+    this.setTitle("SnapGram");
   }
   signOut(){
     this.userService.clearUser();
