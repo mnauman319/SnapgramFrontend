@@ -28,7 +28,7 @@
         <mat-grid-tile [colspan]="8" [rowspan]="10"> </mat-grid-tile>
         <mat-grid-tile [colspan]="3" [rowspan]="10">
             <div class="container">
-                <input id="user-lookup" type="text" placeholder="Search..." (keyup)="search()" [(ngModel)]="searchName">
+                <input id="user-lookup" type="text" placeholder="Search..." (keydown.enter)="search()" [(ngModel)]="searchName">
                 <div class="search"></div>
                 <div class="label"></div>
               </div>
