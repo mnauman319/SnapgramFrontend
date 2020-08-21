@@ -161,7 +161,7 @@
         <div class="modal-header">
             <span (click)="closeUploadModal()" class="close">&times;</span>
         </div>
-        <app-photoupload></app-photoupload>
+        <app-photoupload (closeModal)="closeUploadModal($event)" (changeTitle)="setTitle($event)"></app-photoupload>
     </div>   
 </div>
 

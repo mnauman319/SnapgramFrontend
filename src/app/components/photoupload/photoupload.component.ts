@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
@@ -22,7 +22,8 @@ const TOPK_PREDICTIONS = 2;
   styleUrls: ['./photoupload.component.scss']
 })
 export class PhotouploadComponent implements OnInit {
-
+  @Output() changeTitle = new EventEmitter<string>();
+  @Output() closeModal = new EventEmitter<boolean>();
   constructor(private router:Router, private titleService:Title, private userService:UserService, private photoService:PhotoService, private tagService:TagService) { }
 
   currentUser:User;
@@ -128,8 +129,11 @@ export class PhotouploadComponent implements OnInit {
       let uploadedTag = await this.tagService.createTag(tag,this.currentUser.userId,uploadedPhoto.photoId);
     });
 
-    // Navigate back to photoview
-    this.router.navigateByUrl("/home");
+    this.changeTitle.next("SnapGram");
+    this.closeModal.next(true);
+    // // Navigate back to photoview
+    // this.router.navigateByUrl("/home");
+
   }
   setTitle(){
     this.titleService.setTitle("SnapGram - Upload Photo")
