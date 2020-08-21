@@ -112,14 +112,14 @@
   
   .modal-header {
     padding: 10px;
-    background-color: #5cb85c;
-    color: white;
+    background-color: white;
+    color: black;
   }
   
   .modal-body {padding: 2px 16px;}
   
   .modal-footer {
     padding:10px;
-    background-color: #5cb85c;
-    color: white;
+    background-color: white;
+    color: black;
   }
