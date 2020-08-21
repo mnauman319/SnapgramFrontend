@@ -42,6 +42,7 @@ export class RegisterpageComponent implements OnInit {
     this.router.navigateByUrl("/login")
     }
   }
+  
   setTitle(){
     
   }

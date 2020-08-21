@@ -13,6 +13,7 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 
+
   async createUser(user:User):Promise<User>{
     user = await this.http.post<User>("http://localhost:8080/users",user).toPromise();
     return user;

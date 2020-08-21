@@ -19,7 +19,7 @@ const TOPK_PREDICTIONS = 2;
 @Component({
   selector: 'app-photoupload',
   templateUrl: './photoupload.component.html',
-  styleUrls: ['./photoupload.component.css']
+  styleUrls: ['./photoupload.component.scss']
 })
 export class PhotouploadComponent implements OnInit {
 
