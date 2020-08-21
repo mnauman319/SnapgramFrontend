@@ -2,6 +2,9 @@
     box-sizing: border-box;
   }
   
+*:focus {
+    outline: none;
+}
 
 .register-form-container{
     position:relative;
@@ -51,18 +54,17 @@
     margin-left:25%;
     height:7%;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content:space-between;
     
     input{
         text-align: left;
         font-family: Roboto, "Helvetica Neue", sans-serif;
         font-size:large;
-        height:100%;
         width:40%;
         padding:12px;
         box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-        border-radius: 0 5px 5px 0;
+        border-radius: 5px;
         border:0;
       ::placeholder{
         font-size: large;
@@ -76,17 +78,18 @@
     margin-left:25%;
     height:7%;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content:center;
+    border-radius:5px;
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
     input{
-        text-align: center;
+        text-align: left;
         font-family: Roboto, "Helvetica Neue", sans-serif;
         font-size:large;
-        height:100%;
+        margin-right:40px;
         width:90%;
-        padding:12px;
-        border-radius:5px;
+        // padding:12px;
+        
         border:0;
       ::placeholder{
         font-size: large;
@@ -100,43 +103,54 @@
     margin-left:25%;
     height:7%;
     display: flex;
-    align-items: center;
-    justify-content:center;
-    
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-    input{
-      text-align: center;
-      font-family: Roboto, "Helvetica Neue", sans-serif;
-      font-size:large;
-      height:40px;
-      width:90%;
-      padding:12px;
-      border-radius: 5px;
-      border:0;
-      ::placeholder{
-        font-size: large;
+    justify-content: space-between;
+    .main-pass{
+        input{
+        text-align: left;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size:large;
+        flex-basis:45%;
+        align-self: stretch;
+        padding:12px;
+        border-radius:5px;
+        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+        border:0;
+        ::placeholder{
+          font-size: large;
+        }
+        }
       }
-      button{
-        margin-left:-42px;
-        padding-right:5px;
-        -webkit-appearance: none;
-       }
+      .confirm-pass{
+        input{
+          text-align: left;
+          font-family: Roboto, "Helvetica Neue", sans-serif;
+          font-size:large;
+          flex-basis:45%;
+          align-self: stretch;
+          padding:12px;
+          border-radius:5px;
+          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+          border:0;
+          ::placeholder{
+          font-size: large;
+          }
+        }
+        button{
+          flex:none;
+          margin-left:50px;
+          -webkit-appearance: none;
+         }
     }
+    
   }
   
-.login-btn{
+.create-btn{
     display:flex;
     align-items: center;
     justify-content: center;
     width: 50%;
     margin-top:2em;
     margin-left:25%;
-    mat-checkbox{
-      font-size: large;
-    }
-    span{
-      flex: 1 1 auto;
-    }
     button{
       width: 25%;
       background-color: rgb(255, 255, 255);

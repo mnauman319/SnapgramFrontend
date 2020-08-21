@@ -23,7 +23,7 @@ export class RegisterpageComponent implements OnInit {
   constructor(private router:Router,private userService:UserService,private titleService:Title) { }
 
   ngOnInit(): void {
-    this.setTitle();
+    
   }
   async registerNewUser(){
 
@@ -43,11 +43,11 @@ export class RegisterpageComponent implements OnInit {
     }
   }
   setTitle(){
-    this.titleService.setTitle("SnapGram - Login");
   }
 
   openSignInView() :void {
     this.slideToggleBack.next(false);
-    this.setTitle();
+    this.changeTitle.next("SnapGram - Login");
+
   }
 }

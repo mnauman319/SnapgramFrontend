@@ -31,7 +31,7 @@ export class LoginpageComponent implements OnInit {
     this.slideToggle=status;
   }
   openRegistrationView() {
-    this.setTitle("SnapGram - Register User")
+    this.setTitle("SnapGram - Register User");
     this.slideToggle=true;
   }
 
@@ -46,7 +46,9 @@ export class LoginpageComponent implements OnInit {
       alert("Incorrect Username or Password try again!");
     }
   }
-  setTitle(title:string){
+
+  setTitle(title:string):void{
+
     this.titleService.setTitle(title);
   }
 }
