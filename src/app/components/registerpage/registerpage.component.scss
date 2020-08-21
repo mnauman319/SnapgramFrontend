@@ -104,12 +104,13 @@
     height:7%;
     display: flex;
     justify-content: space-between;
+    
     .main-pass{
         input{
         text-align: left;
         font-family: Roboto, "Helvetica Neue", sans-serif;
         font-size:large;
-        flex-basis:45%;
+        flex-basis:50%;
         align-self: stretch;
         padding:12px;
         border-radius:5px;
@@ -121,11 +122,12 @@
         }
       }
       .confirm-pass{
+        position:relative;
         input{
           text-align: left;
           font-family: Roboto, "Helvetica Neue", sans-serif;
           font-size:large;
-          flex-basis:45%;
+          flex-basis:50%;
           align-self: stretch;
           padding:12px;
           border-radius:5px;
@@ -136,8 +138,8 @@
           }
         }
         button{
-          flex:none;
-          margin-left:50px;
+          position: absolute;
+          right:0;
           -webkit-appearance: none;
          }
     }
@@ -152,10 +154,19 @@
     margin-top:2em;
     margin-left:25%;
     button{
-      width: 25%;
-      background-color: rgb(255, 255, 255);
+      width: 30%;
+      background-color: #ffffff;
+      box-shadow: 0px 3px 1px -2px #f8d99a56,0px 2px 2px 0px #ca2f7d46 , 0px 1px 5px 0px  #8949a134;
     }
   }
+
+  /* 
+  #B2E8E8
+  #314D63
+  #8FB9AB
+  #F4D096
+  #F08976 
+*/
   
   .divider{
     margin-top:40px;

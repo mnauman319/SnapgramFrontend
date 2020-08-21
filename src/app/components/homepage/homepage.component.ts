@@ -19,7 +19,9 @@ export class HomepageComponent implements OnInit {
   currentUser:User;
   searchName:string;
   user:User = this.userService.loggedInUser;
+  uploadModal:boolean;
   
+
  // storedPhotos:Photo[] = this.photoService.storedPhotos;     //storaged of searched user's photos
   displayedPhotos:Photo[];  //photo array sent to photoview component
   filterInput:string;       //string input for filtering storedPhotos
@@ -34,7 +36,11 @@ export class HomepageComponent implements OnInit {
       this.currentUser = this.userService.loggedInUser;
       this.getUserPhotos(this.currentUser.userId);
     }
+
+      // this.setCurrentUser();
+
     //  this.setCurrentUser();
+
 
       this.setTitle();
   }
@@ -77,8 +83,12 @@ export class HomepageComponent implements OnInit {
      }
   }
 
-  openUploadPhoto(){
-    this.router.navigateByUrl("/upload")
+  openUploadModal(){
+    this.uploadModal = true;
+  }
+
+  closeUploadModal(){
+    this.uploadModal = false;
   }
   signOut(){
     this.userService.clearUser();
@@ -98,4 +108,6 @@ export class HomepageComponent implements OnInit {
    
 
   }
+  
+  
 }

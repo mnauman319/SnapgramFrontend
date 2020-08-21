@@ -1,4 +1,8 @@
-<p>photoupload works!</p>
+<div class="upload-container">
+    <form>
+        <div class="preview-container">
+      </div>
+
 
 <form>
    
@@ -27,7 +31,26 @@
             {{ tag.tagName }}
             <span class="close" id="deleteTagSpan" (click)="deleteLocalTag(tag.tagName)">&times;</span>
         </div>
-    </li>
-  </ul>
+        <input #fileUpload type="file" id="photoUploadImage" name="files" (change)="onFileChange($event)" >
+        <img #chosenImage width="224" height="224" class="sample-image" />
+        Photo Name: <input id="photoName" type="text" name="photoName" (change)="onPhotoNameChange($event)" >
+        Photo Description: <input id="photoDescription" type="text" name="photoDescription" (change)="onPhotoDescriptionChange($event)" >
+        <div id=createTags>
+        Tags :
+            <input id="addTag" [(ngModel)]='typedTagToSubmit' name="addTag" type="text" >
+            <button id="addTagButton"type="button" (click)="addLocalTag()">add Tag</button>
+        </div>
+        <button id="savePhotoButton"type="button" (click)="uploadPhoto()">Upload</button>
+    </form>
+    <ul>
+        <li *ngFor='let tag of tagsToUpload'>
+            <div id=tagHolder>
+                {{ tag.tagName }}
+                <span class="close" (click)="deleteLocalTag(tag.tagName)">&times;</span>
+            </div>
+        </li>
+    </ul>
+</div>    
+ 
 
 

@@ -61,7 +61,7 @@
         <mat-grid-tile [colspan]="6" [rowspan]="12"> </mat-grid-tile>
         <mat-grid-tile class="add-photo" [colspan]="4" [rowspan]="12" *ngIf="user.userId === currentUser.userId">
             <mat-label>New Photo </mat-label>
-            <button id ="add-photo-button" mat-mini-fab color="accent" (click)="openUploadPhoto()"><mat-icon>add_a_photo</mat-icon></button>
+            <button id ="add-photo-button" mat-mini-fab color="accent" (click)="openUploadModal()"><mat-icon>add_a_photo</mat-icon></button>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="2" [rowspan]="12"> </mat-grid-tile>
     </mat-grid-list>
@@ -87,4 +87,14 @@
     
         <mat-grid-tile [colspan]="12" [rowspan]="10" ></mat-grid-tile>
     </mat-grid-list>
-</section>
+
+
+<div *ngIf ="uploadModal" class="modal">
+    <div class = "modal-content">
+        <div class="modal-header">
+            <span (click)="closeUploadModal()" class="close">&times;</span>
+        </div>
+        <app-photoupload></app-photoupload>
+    </div>   
+</div>
+
