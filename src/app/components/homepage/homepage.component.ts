@@ -36,7 +36,12 @@ export class HomepageComponent implements OnInit {
       this.currentUser = this.userService.loggedInUser;
       this.getUserPhotos(this.currentUser.userId);
     }
+
       // this.setCurrentUser();
+
+    //  this.setCurrentUser();
+
+
       this.setTitle();
   }
   setTitle(){
@@ -64,13 +69,12 @@ export class HomepageComponent implements OnInit {
         if(photo.photoName.includes(this.filterInput)){
           filteredPhotos.push(photo);
         }else{
-
-          for(let tag of photo.tags){
-            if(tag.tagName.includes(this.filterInput)){
-              filteredPhotos.push(photo);
-              break;
-            }
+        for(let tag of photo.tags){
+          if(tag.tagName.includes(this.filterInput)){
+            filteredPhotos.push(photo);
+            break;
           }
+        }
         }
       }
       this.displayedPhotos = filteredPhotos;
@@ -97,6 +101,11 @@ export class HomepageComponent implements OnInit {
    if(this.user !== null){
     this.getUserPhotos(this.user.userId);
    }
+   if(this.searchName ===""){
+     this.user = this.currentUser;
+     this.getUserPhotos(this.user.userId);
+   }
+   
 
   }
   

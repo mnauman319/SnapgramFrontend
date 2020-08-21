@@ -1,9 +1,10 @@
+<div id="accordianHeader">
 <mat-accordion>
     <mat-expansion-panel  class="expansion-bar">
         <mat-expansion-panel-header>
             <mat-panel-title class="expansion-bar-header">
                 <span>
-                    <button mat-button ><mat-icon>account_circle</mat-icon> <mat-label> {{currentUser.username}}</mat-label></button>
+                    <button mat-button ><mat-icon>account_circle</mat-icon> <mat-label id="homepage-username-label"> {{currentUser.username}}</mat-label></button>
                 </span>
                 <span class="expansion-bar-spacer"></span>
                 <button mat-button><mat-icon matBadge="11" matBadgeColor="warn">notifications</mat-icon></button>
@@ -21,29 +22,27 @@
             </p>
     </mat-expansion-panel> 
 </mat-accordion>
-
+</div>
 <section>
     <mat-grid-list cols="12" rowHeight="10:1" [gutterSize]="'10px'">
         <mat-grid-tile [colspan]="8" [rowspan]="10"> </mat-grid-tile>
         <mat-grid-tile [colspan]="3" [rowspan]="10">
             <div class="container">
-                <input type="text" placeholder="Search..." (keyup)="search()" [(ngModel)]="searchName">
+                <input id="user-lookup" type="text" placeholder="Search..." (keyup)="search()" [(ngModel)]="searchName">
                 <div class="search"></div>
                 <div class="label"></div>
-                
               </div>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1" [rowspan]="10"> </mat-grid-tile>
     </mat-grid-list>
 </section>
-  
 
 <section>
     <mat-grid-list cols="12" rowHeight="10:1" [gutterSize]="'10px'">
         <mat-grid-tile [colspan]="12" [rowspan]="5"></mat-grid-tile>
         <mat-grid-tile [colspan]="1" [rowspan]="20"> </mat-grid-tile>
         <mat-grid-tile [colspan]="10" [rowspan]="20">
-            <h1>Welcome to Snapgram!!!</h1>
+            <h1>Welcome to {{user.username}} Snapgram page!</h1>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1" [rowspan]="20"> </mat-grid-tile>
         <mat-grid-tile [colspan]="12" [rowspan]="1"> </mat-grid-tile>
@@ -56,11 +55,11 @@
         <mat-grid-tile [colspan]="10" [rowspan]="12"> 
             <mat-form-field class='search-bar'>
                     <mat-label>Filter</mat-label>
-                    <input matInput placeholder="Ex. Nature" value="" (keyup)="filter()" [(ngModel)]="filterInput">
+                    <input matInput id="search_photo" placeholder="Ex. Nature" value="" (keyup)="filter()" [(ngModel)]="filterInput">
             </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="6" [rowspan]="12"> </mat-grid-tile>
-        <mat-grid-tile class="add-photo" [colspan]="4" [rowspan]="12">
+        <mat-grid-tile class="add-photo" [colspan]="4" [rowspan]="12" *ngIf="user.userId === currentUser.userId">
             <mat-label>New Photo </mat-label>
             <button id ="add-photo-button" mat-mini-fab color="accent" (click)="openUploadModal()"><mat-icon>add_a_photo</mat-icon></button>
         </mat-grid-tile>
@@ -88,7 +87,7 @@
     
         <mat-grid-tile [colspan]="12" [rowspan]="10" ></mat-grid-tile>
     </mat-grid-list>
-</section>
+
 
 <div *ngIf ="uploadModal" class="modal">
     <div class = "modal-content">
@@ -98,3 +97,4 @@
         <app-photoupload></app-photoupload>
     </div>   
 </div>
+

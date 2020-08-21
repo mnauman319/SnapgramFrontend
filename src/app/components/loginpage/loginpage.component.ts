@@ -22,8 +22,6 @@ export class LoginpageComponent implements OnInit {
 
   constructor(private router:Router, private userService:UserService,private titleService:Title) { }
 
-  
-
   ngOnInit(): void {
     this.setTitle("SnapGram - Login");
     console.log(this.slideToggle);
@@ -48,7 +46,9 @@ export class LoginpageComponent implements OnInit {
       alert("Incorrect Username or Password try again!");
     }
   }
+
   setTitle(title:string):void{
+
     this.titleService.setTitle(title);
   }
 }
