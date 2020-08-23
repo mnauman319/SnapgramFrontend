@@ -199,33 +199,38 @@ html, body {
 }
 
 .modal {
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  -webkit-box-align: center;
+  align-items: center;
+  background: rgba(25, 25, 25, 0.9);
+  bottom: 0;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
   left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  z-index: 249;
 }
 
 /* Modal Content */
 .modal-content {
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  margin: 15px;
+  max-height: 80vh;
+  min-width: 0;
+  text-align: left;
+  width: 1024px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(25, 25, 25, 0.2);
+  overflow: auto;
+  padding: 30px;
   position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width:50%;
-  height:'auto';
-  max-height:'70%';
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s;
 }
 
 
@@ -246,16 +251,16 @@ html, body {
 }
 
 .close {
-  color: white;
+  color: rgb(58, 58, 58);
   float: right;
   font-size: 28px;
   font-weight: bold;
+  &:hover{
+    cursor: pointer;
+  }
+  &:focus{
+    color: #000;
+  }
 }
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
 
