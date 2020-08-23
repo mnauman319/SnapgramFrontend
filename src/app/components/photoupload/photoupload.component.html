@@ -1,22 +1,76 @@
 <div class="upload-container">
-    <form>
-            <input #fileUpload type="file" id="photoUploadImage" name="files" (change)="onFileChange($event)" >
-            <img #chosenImage width="224" height="224" class="sample-image" />
-            Photo Name: <input id="photoName" type="text" name="photoName" (change)="onPhotoNameChange($event)" >
-            Photo Description: <input id="photoDescription" type="text" name="photoDescription" (change)="onPhotoDescriptionChange($event)" >
-            <div id=createTags>
-            Tags :
-                <input id="addTag" [(ngModel)]='typedTagToSubmit' name="addTag" type="text" >
-                <button id="addTagButton"type="button" (click)="addLocalTag()">add Tag</button>
-            </div>
-            <button id="savePhotoButton"type="button" (click)="uploadPhoto()">Upload</button>
-        </form>
-        <ul>
-            <li *ngFor='let tag of tagsToUpload'>
-                <div id=tagHolder>
-                    {{ tag.tagName }}
-                    <span class="close" (click)="deleteLocalTag(tag.tagName)">&times;</span>
+        <div class="preview-column">
+            <div class="upload-column-wrap">
+                <div class="upload-input-field-preview">
+                    <div class="upload-new-image-prompt">
+                        <img #chosenImage width="224" height="224" class="sample-image" />
+                        <input #fileUpload type="file" id="photoUploadImage" name="files" (change)="onFileChange($event)" >
+                    </div>
                 </div>
-            </li>
-        </ul>
-</div>
+            </div>
+        </div>
+        <div class="info-column">
+            <div class="info-column-wrap">
+                <div class="info-column-row">
+                    <label class="input-label">
+                         Photo Title 
+                        <span>(required)</span>
+                    </label>
+                    <div class="upload-input-field">
+                        <label>
+                            <input placeholder="Give the photo a title" id="photoName" type="text" name="photoName" (change)="onPhotoNameChange($event)" >
+                        </label>
+                    </div>
+                </div>
+                <div class="info-column-row">
+                    <label class="input-label">
+                         Photo Description 
+                        <span>(required)</span>
+                    </label>
+                    <div class="upload-input-field">
+                        <label>
+                            <input id="photoDescription" type="text" name="photoDescription" (change)="onPhotoDescriptionChange($event)" >
+                        </label>
+                    </div>
+                </div>
+                <div class="info-column-row">
+                    <label class="input-label">
+                         Tags 
+                    </label>
+                    <div class="upload-input-field">
+                        <div id=createTags>
+                            <label>
+                                <input id="addTag" [(ngModel)]='typedTagToSubmit' name="addTag" type="text" >
+                                <button id="addTagButton"type="button" (click)="addLocalTag()">Add</button>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-column-row-tags">
+                    <div class="tag-area" *ngFor='let tag of tagsToUpload'>
+                        <div id=tagHolder>
+                            {{ tag.tagName }}
+                            <span class="close" (click)="deleteLocalTag(tag.tagName)">&times;</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-column-row">
+                    <div class="upload-submit-field">
+                        <button id="savePhotoButton"type="button" (click)="uploadPhoto()">
+                            <div>
+                                <div>
+                                    <span>
+                                        Upload
+                                    </span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div> 
+ 
+ 
+ 
+
