@@ -1,0 +1,205 @@
+*{
+    box-sizing:border-box;
+}
+
+.photoview-container{
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: #fff;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    .photoview-grid{
+        max-width: 2968px;
+        padding: 0 25px;
+        width: 100%;
+        position: relative;
+        margin-bottom: 20px;
+        div{
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: space-between;
+            .card-tile{
+                width:340px;
+                height:350px;
+                margin:10px;
+                box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+                border-radius:5px;
+                display:flex;
+                flex-direction: column;
+                .card-content-wrap{
+                    width:100%;
+                    height:250px;
+                    .card-content{
+                        div{
+                            display:flex;
+                            justify-content: center;
+                            position:relative;
+                            div{
+                                position: absolute;
+                                left:0;
+                                width:340px;
+                                height:250px;
+                                display:flex;
+                                align-items:center;
+                                justify-content: center;
+                                overflow: hidden;
+                                border-radius:5px;
+                                border-bottom:1px solid rgb(248, 248, 248);
+                                clip: rect(0,340px,250px,0);
+                                img{
+                                    width: 100%;
+                                    height:auto;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                
+            }
+        }
+    }
+}
+
+.card-details-wrap{
+    height:100px;
+    .card-details{
+        display:flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        span{
+            color: #696969;
+            font-size: 12px;
+            font-weight: normal;
+            padding-right: 5px;
+        }
+    }
+}
+
+
+
+
+
+// .card-tile{
+//     max-width: 404px;
+//     min-width: 145px;
+//     position: relative;
+// }
+
+
+
+
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width:30%;
+    height: auto;
+    max-height: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+  }
+
+  .modal-content img{
+    width: 100%;
+    /* max-height: 400px; */
+    object-fit:contain; 
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding: 10px;
+    background-color: white;
+    color: black;
+  }
+  
+  .modal-body {
+    display: flex;
+    height: 40%;
+    width: 90%;
+    padding: 2px 16px;
+  }
+  .title-description-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding-bottom: 15px;
+  }
+  
+  .tag-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    padding-bottom: 15px;
+  }
+#addTagButton{
+    background-color: #ff4000;
+    color: white; 
+    border-color: white;
+  }
+ .buttons-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+  .modal-footer {
+    padding:10px;
+    background-color: white;
+    color: black;
+  }

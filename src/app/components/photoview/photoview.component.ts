@@ -11,7 +11,7 @@ import {MatChipsModule} from '@angular/material/chips';
 @Component({
   selector: 'app-photoview',
   templateUrl: './photoview.component.html',
-  styleUrls: ['./photoview.component.css']
+  styleUrls: ['./photoview.component.scss']
 })
 export class PhotoviewComponent implements OnInit {
 
