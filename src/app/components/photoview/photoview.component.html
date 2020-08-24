@@ -17,7 +17,6 @@
                     </div>
                 </div>
                 <div class="card-details-wrap">
-                    
                     <div class="card-details">
                         <div class="desc-wrap">
                             <span id="photo_description">{{photo.photoDescription}}</span>
@@ -38,67 +37,71 @@
 <div *ngIf="selectedPhoto" class="modal">
 
     <div class="modal-content">
-
+        
         <div class="modal-header">
             <h2>{{selectedPhoto.photoName}}</h2>
             <span (click)="closeModal()" class="close">&times;</span>
         </div>
+        <div class="modal-container">
+            <div class="modal-body">
+                <img src="{{selectedPhoto.photoUrl}}" alt="{{selectedPhoto.photoName}}">
+            </div>
+            <div class="modal-footer">
 
-        <div class="modal-body">
-            <img src="{{selectedPhoto.photoUrl}}" alt="{{selectedPhoto.photoName}}">
-        </div>
-
-        <div class="modal-footer">
-
-            <div *ngIf="canEdit">
-                <div class="title-description-container">
-                    <mat-form-field>
-                        <mat-label>Title</mat-label>
-                        <input matInput id="photoName" type="text" [(ngModel)]='photoTitleInput'>
-                    </mat-form-field>
-                    <div>
+                <div *ngIf="canEdit">
+                    <div class="title-description-container">
                         <mat-form-field>
-                            <mat-label>Description</mat-label>
-                            <textarea matInput id="photoDescription" [(ngModel)]='photoDescInput'></textarea>
+                            <mat-label>Title</mat-label>
+                            <input matInput id="photoName" type="text" [(ngModel)]='photoTitleInput'>
                         </mat-form-field>
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Description</mat-label>
+                                <textarea matInput id="photoDescription" [(ngModel)]='photoDescInput'></textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
+    
+                    <div class="tag-container">
+    
+                        <!-- <label for="createTags">Tags: </label> -->
+                        <span class="tagList" *ngFor="let tag of tempTagList">
+                            #{{tag.tagName}}<span class="deleteTagBtn" (click)="deleteTag(tag)">&#x274C; &nbsp;</span>
+                        </span>
+                        <div id=changeTags>
+                            <input id="addTag" [(ngModel)]='tagNameInput' name="addTag" type="text">
+                            <button id="addTagButton" type="button" (click)="addTag()">Add Tag</button>
+                        </div>
+                    </div>
+                    <div class="buttons-container">
+                        <button id="saveButton" mat-mini-fab type="button" (click)="save()">
+                            <mat-icon>save</mat-icon>
+                        </button>
+    
+                        <button id="tryDeleteButton" mat-mini-fab type="button" (click)="tryDelete()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+    
+                        <span *ngIf="showDeleteConfirm">
+                            <span>Are you sure?:</span>
+                            <span><button id="yesDelete" (click)="deletePhoto()">Yes</button></span>
+                            <span><button id="noDelete" (click)="cancelDelete()">No</button></span>
+                        </span>
                     </div>
                 </div>
-
-                <div class="tag-container">
-
-                    <!-- <label for="createTags">Tags: </label> -->
-                    <span class="tagList" *ngFor="let tag of tempTagList">
-                        #{{tag.tagName}}<span class="deleteTagBtn" (click)="deleteTag(tag)">&#x274C; &nbsp;</span>
-                    </span>
-                    <div id=changeTags>
-                        <input id="addTag" [(ngModel)]='tagNameInput' name="addTag" type="text">
-                        <button id="addTagButton" type="button" (click)="addTag()">Add Tag</button>
-                    </div>
+    
+                <div *ngIf="!canEdit">
+                    <span *ngFor="let tag of tempTagList">#{{tag.tagName}} </span>
+                    <div>{{selectedPhoto.photoDescription}}</div>
                 </div>
-                <div class="buttons-container">
-                    <button id="saveButton" mat-mini-fab type="button" (click)="save()">
-                        <mat-icon>save</mat-icon>
-                    </button>
-
-                    <button id="tryDeleteButton" mat-mini-fab type="button" (click)="tryDelete()">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-
-                    <span *ngIf="showDeleteConfirm">
-                        <span>Are you sure?:</span>
-                        <span><button id="yesDelete" (click)="deletePhoto()">Yes</button></span>
-                        <span><button id="noDelete" (click)="cancelDelete()">No</button></span>
-                    </span>
-                </div>
+    
+    
             </div>
-
-            <div *ngIf="!canEdit">
-                <span *ngFor="let tag of tempTagList">#{{tag.tagName}} </span>
-                <div>{{selectedPhoto.photoDescription}}</div>
-            </div>
-
 
         </div>
+        
+
+        
     </div>
 
 </div>
