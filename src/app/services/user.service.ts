@@ -27,11 +27,11 @@ export class UserService {
 
   async searchUserByUsername(username:string){
     let user:User;
-    user = await this.http.get<User>(`http://localhost:8080/users?username=${username}`).toPromise();
+    user = await this.http.get<User>(`http://ec2-18-216-111-186.us-east-2.compute.amazonaws.com:8080/users?username=${username}`).toPromise();
     return user;
   }
   async attemptLogin(username:string,password:string):Promise<User>{
-    let httpResponse = await this.http.post<User>("http://localhost:8080/login",{username, password}).toPromise();
+    let httpResponse = await this.http.post<User>("http://ec2-18-216-111-186.us-east-2.compute.amazonaws.com:8080/login",{username, password}).toPromise();
     return httpResponse;
   }
   clearUser(){
