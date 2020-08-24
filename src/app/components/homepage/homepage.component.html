@@ -72,22 +72,15 @@
 </div>
 <section>
     <mat-grid-list cols="24" rowHeight="10:1" [gutterSize]="'10px'">
-        <mat-grid-tile [colspan]="2" [rowspan]="12">
-            <div class="colored-lines-container">
-                <div class="half1-diag2"></div>
-                <div class="half1-diag3"></div>
-                <div class="half1-diag4"></div>
-                <div class="half1-diag5"></div>
-                <div class="half1-diag6"></div>
-            </div>
-            <!-- <div class="search-edit-photo-container"> -->
-        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="12"></mat-grid-tile>
         <mat-grid-tile [colspan]="10" [rowspan]="12">
-            <mat-form-field class='search-bar'>
-                <mat-label>Filter</mat-label>
-                <input matInput id="search_photo" placeholder="Ex. Nature" value="" (keyup)="filter()"
-                    [(ngModel)]="filterInput">
-            </mat-form-field>
+            <div class="search-bar-container">
+                <mat-form-field class='search-bar'>
+                    <mat-label>Filter</mat-label>
+                    <input matInput id="search_photo" placeholder="Ex. Nature" value="" (keyup)="filter()"
+                        [(ngModel)]="filterInput">
+                </mat-form-field>
+            </div>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="6" [rowspan]="12"> </mat-grid-tile>
         <mat-grid-tile class="add-photo" [colspan]="4" [rowspan]="12">
@@ -96,16 +89,7 @@
                 <button id ="add-photo-button" mat-mini-fab color="accent" (click)="openUploadModal()"><mat-icon>add_a_photo</mat-icon></button>
             </div>
         </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="2" [rowspan]="12">
-            <div class="colored-lines-container">
-                <div class="half1-diag2"></div>
-                <div class="half1-diag3"></div>
-                <div class="half1-diag4"></div>
-                <div class="half1-diag5"></div>
-                <div class="half1-diag6"></div>
-            </div>
-        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="12"></mat-grid-tile>
     </mat-grid-list>
 </section>
 <section>
