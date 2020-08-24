@@ -90,6 +90,7 @@ export class HomepageComponent implements OnInit {
   closeUploadModal(){
     this.uploadModal = false;
     this.getUserPhotos(this.currentUser.userId);
+    this.getUserPhotos(this.currentUser.userId);
     this.setTitle("SnapGram");
   }
   signOut(){

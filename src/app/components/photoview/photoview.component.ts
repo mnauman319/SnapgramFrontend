@@ -34,6 +34,7 @@ export class PhotoviewComponent implements OnInit {
     private router:Router, private tserv:TagService) { }
 
   ngOnInit(): void {
+    this.refreshPhotos();
     this.canEdit = this.userv.loggedInUser.userId === this.pserv.searchedUserId;
   }
 
@@ -57,6 +58,7 @@ export class PhotoviewComponent implements OnInit {
       this.addTagList=[];
       this.deleteTagList=[];
     }
+    this.refreshPhotos();
   }
 
   //updates deleteTagList and addTagList
@@ -99,7 +101,7 @@ export class PhotoviewComponent implements OnInit {
     this.selectedPhoto.tags=null;
     this.pserv.editPhoto(this.selectedPhoto, this.userv.loggedInUser.userId);
 
-    //this.refreshPhotos();
+    // this.refreshPhotos();
     this.selectedPhoto.tags = this.tempTagList;
     this.closeModal();
   }

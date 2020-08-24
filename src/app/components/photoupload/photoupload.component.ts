@@ -132,7 +132,7 @@ export class PhotouploadComponent implements OnInit {
     this.changeTitle.next("SnapGram");
     this.closeModal.next(true);
     // // Navigate back to photoview
-    // this.router.navigateByUrl("/home");
+    this.router.navigateByUrl("/home");
 
   }
   setTitle(){

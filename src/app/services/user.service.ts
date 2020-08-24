@@ -15,13 +15,13 @@ export class UserService {
 
 
   async createUser(user:User):Promise<User>{
-    user = await this.http.post<User>("http://localhost:8080/users",user).toPromise();
+    user = await this.http.post<User>("http://ec2-18-216-111-186.us-east-2.compute.amazonaws.com:8080/users",user).toPromise();
     return user;
   }
 
   async testingUser(){
     let user:User;
-    user = await this.http.get<User>(`http://localhost:8080/users/1`).toPromise();
+    user = await this.http.get<User>(`http://ec2-18-216-111-186.us-east-2.compute.amazonaws.com:8080/users/1`).toPromise();
     return user;
   }
 
