@@ -19,8 +19,12 @@
                 <div class="card-details-wrap">
                     
                     <div class="card-details">
-                        <span id="photo_description">{{photo.photoDescription}}</span>
-                        <span id="tagSpan" *ngFor="let tag of photo.tags">#{{tag.tagName}} </span>
+                        <div class="desc-wrap">
+                            <span id="photo_description">{{photo.photoDescription}}</span>
+                        </div>
+                        <div class="tag-wrap">
+                            <span id="tagSpan" *ngFor="let tag of photo.tags">#{{tag.tagName}} </span>
+                        </div>
                     </div>
                 </div>
             </div>
