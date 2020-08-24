@@ -10,13 +10,16 @@
                     <div id="card" class="card-content" (click)="selectPhoto(photo)">
                         <div>
                             <div>
+                                <h2 id="image-title">{{photo.photoName}}</h2>
                                 <img class="card-image" src="{{photo.photoUrl}}">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-details-wrap">
-                    <div class="card details">
+                    
+                    <div class="card-details">
+                        <span id="photo_description">{{photo.photoDescription}}</span>
                         <span id="tagSpan" *ngFor="let tag of photo.tags">#{{tag.tagName}} </span>
                     </div>
                 </div>

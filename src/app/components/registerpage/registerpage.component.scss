@@ -110,6 +110,7 @@
     justify-content: space-between;
     
     .main-pass{
+      height: 100%;
         input{
         text-align: left;
         font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -126,6 +127,7 @@
         }
       }
       .confirm-pass{
+        height: 100%;
         position:relative;
         input{
           text-align: left;
