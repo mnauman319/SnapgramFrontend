@@ -25,7 +25,6 @@ export class LoginpageComponent implements OnInit {
   ngOnInit(): void {
     this.setTitle("SnapGram - Login");
     console.log(this.slideToggle);
-    this.loginUser();
   }
 
   toggleBox(status:boolean){
@@ -37,8 +36,7 @@ export class LoginpageComponent implements OnInit {
   }
 
   async loginUser(){
-    let user:User = await this.userService.attemptLogin("samwiseTheBrave","mrFrodo");
-    // let user:User = await this.userService.attemptLogin(this.username,this.password);
+    let user:User = await this.userService.attemptLogin(this.username,this.password);
     if(user !== null){
       this.userService.loggedInUser = user;
       console.log(user);
