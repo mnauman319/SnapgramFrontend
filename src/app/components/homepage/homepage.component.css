@@ -27,16 +27,7 @@
     width:99%;
     overflow:auto;
 }
-img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 25px;
-}
-.banner-container{
-    width: 100%;
-    display: flex;
-}
+
 md-grid-tile{
     height: calc(100vh - 24px);
     border:  1px solid black;

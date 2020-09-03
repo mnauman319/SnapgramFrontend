@@ -269,4 +269,14 @@ html, body {
   }
 }
 
-
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 25px;
+}
+.banner-container{
+  // justify-content: center;
+  width: 100%;
+  display: flex;
+}

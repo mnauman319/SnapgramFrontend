@@ -58,7 +58,6 @@ export class PhotoviewComponent implements OnInit {
       this.addTagList=[];
       this.deleteTagList=[];
     }
-    this.refreshPhotos();
   }
 
   //updates deleteTagList and addTagList
